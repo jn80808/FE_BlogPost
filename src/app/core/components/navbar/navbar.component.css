@@ -1,0 +1,74 @@
+        /* Top Navigation Bar */
+        .top-bar {
+            background-color: #134F5C;
+            color: white;
+            font-size: 14px;
+            padding: 5px 20px;
+            
+        }
+        .top-bar a {
+            color: white;
+            text-decoration: none;
+            margin-right: 15px;
+            transition: color 0.3s;
+        }
+        .top-bar a:hover {
+            color: #C5E1A5; /* Light Green Hover */
+        }
+        .top-bar .right-text {
+            font-weight: bold;
+        }
+
+/* NAVBAR SECTION */
+
+        /* Main Navbar */
+        .navbar {
+            background: none; /* No Background */
+            padding: 10px 20px;
+        }
+        .navbar-brand img {
+            height: 50px; /* Resized Logo */
+        }
+        .navbar-nav {
+            margin: auto; /* Center Navigation */
+        }
+        .navbar-nav .nav-link {
+            font-size: 16px;
+            font-weight: 500;
+            color: #134F5C !important; /* Teal */
+            transition: color 0.3s;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #0D3B46 !important; /* Darker Teal */
+        }
+        .social-icons a {
+            color: #134F5C;
+            font-size: 18px;
+            margin-right: 10px;
+            transition: color 0.3s;
+        }
+        .social-icons a:hover {
+            color: #0D3B46;
+        }
+        .search-form {
+            position: relative;
+        }
+        .search-form input {
+            border-radius: 20px;
+            padding-right: 35px;
+            border: 1px solid #134F5C;
+            color: #134F5C;
+        }
+        .search-btn {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: none;
+            background: none;
+            color: #134F5C;
+            cursor: pointer;
+        }
+        .search-btn:hover {
+            color: #0D3B46;
+        }
