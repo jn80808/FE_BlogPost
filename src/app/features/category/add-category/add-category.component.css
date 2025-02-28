@@ -1,0 +1,23 @@
+.custom-heading {
+    color: #134F5C; /* Theme color */
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.custom-btn {
+    background-color: #134F5C;
+    color: white;
+    border: none;
+}
+
+.custom-btn:hover {
+    background-color: #0F3D47;
+}
+
+.container {
+    max-width: 500px; /* Adjust form width */
+    margin-top: 80px; /* Space from top */
+}
