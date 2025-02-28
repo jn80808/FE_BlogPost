@@ -1,4 +1,6 @@
+<!------------------------->
 <!-- Top Navigation Bar -->
+<!------------------------->
 <div class="top-bar">
     <div class="container d-flex justify-content-between">
         <div>
@@ -13,7 +15,9 @@
     </div>
 </div>
 
+<!------------------------->
 <!-- Main Navbar -->
+<!------------------------->
 <nav class="navbar navbar-expand-lg navbar-light">
     <!-- Left Side: Logo -->
     <a class="navbar-brand" href="#">
@@ -35,15 +39,17 @@
                 <a class="nav-link" href="#">LEARN</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">TASTE</a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Beverage</a>
-                    <a class="dropdown-item" href="#">Scones</a>
-                    <a class="dropdown-item" href="#">Syrups</a>
-                </div>
-            </li>
+                <a class="nav-link dropdown-toggle" href="#" id="tasteDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    TASTE
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="tasteDropdown">
+                    <li><a class="dropdown-item" href="#">Beverage</a></li>
+                    <li><a class="dropdown-item" href="#">Scones</a></li>
+                    <li><a class="dropdown-item" href="#">Syrups</a></li>
+                </ul>
+            </li>            
             <li class="nav-item">
-                <a class="nav-link" href="#">CREATE</a>
+                <a class="nav-link" routerLink="categories">CATEGORY</a>
             </li>
         </ul>
 
@@ -66,5 +72,3 @@
 
 <!-- Bootstrap JS -->
 <!-- https://theteacupoflife.com/ -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script>

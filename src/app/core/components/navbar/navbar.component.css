@@ -1,4 +1,4 @@
-        /* Top Navigation Bar */
+/* Top Navigation Bar */
         .top-bar {
             background-color: #134F5C;
             color: white;
@@ -72,3 +72,41 @@
         .search-btn:hover {
             color: #0D3B46;
         }
+
+/* DROPDOWN NAVBAR  */
+        /* Remove borders and box-like appearance */
+        .dropdown-menu {
+            border: none !important;
+            box-shadow: none !important;
+            background-color: transparent !important;
+        }
+
+        /* Remove background and add a subtle hover effect */
+        .dropdown-item {
+            background: none !important;
+            color: #134F5C; /* Teal or any color */
+            font-weight: 500;
+            padding: 5px 10px;
+            transition: color 0.3s ease-in-out;
+        }
+
+        /* Hover effect (underline or slight color change) */
+        .dropdown-item:hover {
+            background: none !important;
+            color: #0D3B46; /* Slightly darker teal */
+            text-decoration: underline; /* Optional for minimal look */
+        }
+
+        /* Remove padding and spacing */
+        .nav-item.dropdown .dropdown-menu {
+            padding: 0;
+            min-width: auto;
+        }
+
+        /* Align dropdown items without excessive spacing */
+        .navbar-nav .dropdown-menu {
+            margin-top: 0;
+        }
+
+
+        
