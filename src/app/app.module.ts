@@ -8,6 +8,7 @@ import { HomeComponent } from './Home/home/home.component';
 import { HomeModule } from './Home/home/home.module';
 import { CategoryListComponent } from './features/category/category-list/category-list.component';
 import { AddCategoryComponent } from './features/category/add-category/add-category.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AddCategoryComponent } from './features/category/add-category/add-categ
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HomeModule
+    HomeModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

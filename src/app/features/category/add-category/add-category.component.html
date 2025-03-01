@@ -3,19 +3,26 @@
 <br><br><br>b
 <div class="container mt-5">
     <h1 class="text-center mb-4 custom-heading">Add Category</h1>
-    <form class="p-4 border rounded shadow-sm bg-light mx-auto" style="max-width: 400px;">
+
+    <form #form="ngForm" (ngSubmit)="onFormSubmit()" class="p-4 border rounded shadow-sm bg-light mx-auto" style="max-width: 400px;">
+  
+        <!-- CategoryNameInput -->       
         <div class="mb-3">
             <label for="CategoryNameInput" class="form-label fw-bold">Category Name</label>
-            <input type="text" class="form-control" id="CategoryName" placeholder="Enter category name">
+            <input type="text" class="form-control" id="categoryName" 
+                name="categoryName"  
+                [(ngModel)]="model.name"> 
         </div>
+
+        <!-- CategoryURLHandleInput -->
         <div class="mb-3">
             <label for="CategoryURLHandleInput" class="form-label fw-bold">Category URL Handle</label>
             <input type="text" class="form-control" id="CategoryURLHandle" placeholder="Enter category URL handle">
         </div>
-        <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="saveCategory">
-            <label class="form-check-label" for="saveCategory">Save</label>
-        </div>
+        <!-- Button  -->
         <button type="submit" class="btn custom-btn w-100">Submit</button>
     </form>
+
 </div>
+
+    <!-- placeholder="Enter category name" -->
