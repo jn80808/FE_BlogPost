@@ -13,13 +13,14 @@ export class AddCategoryComponent {
 
   constructor (){
     this.model = {
-      name : "Joy",
+      name : "",
       urlHanlde: ""
     };
   }
   
 
   onFormSubmit() {
+    console.log(this.model);
 
   }
 
