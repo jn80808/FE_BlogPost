@@ -1,4 +1,8 @@
 export interface AddCategoryRequest{
     name: string;
-    urlHanlde: string;
+    UrlHandle: string;
+    Description: string;
+
 }
+
+

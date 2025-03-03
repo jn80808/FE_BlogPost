@@ -15,14 +15,25 @@
             [(ngModel)]="model.name"> 
         </div>
 
+        <!-- DescriptionInput -->
+        <div class="mb-3">
+            <label for="CategoryURLHandleInput" class="form-label fw-bold">Description</label>
+            <input type="text" class="form-control" id="CategoryDescription" 
+            placeholder="Enter Description"
+            name="CategoryDescription"  
+            [(ngModel)]="model.Description">
+        </div>        
+
         <!-- CategoryURLHandleInput -->
         <div class="mb-3">
             <label for="CategoryURLHandleInput" class="form-label fw-bold">Category URL Handle</label>
             <input type="text" class="form-control" id="CategoryURLHandle" 
             placeholder="Enter category URL handle"
             name="CategoryURLHandle"  
-            [(ngModel)]="model.urlHanlde">
+            [(ngModel)]="model.UrlHandle">
         </div>
+
+        
         <!-- Button  -->
         <button type="submit" class="btn custom-btn w-100">Submit</button>
     </form>
