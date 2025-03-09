@@ -1,11 +1,6 @@
-export interface category {
-
-    Id: string;
-    Name: string;
-    UrlHandle: string;
-    Description : string;
-
-
+export interface Category {
+    id: string;
+    name: string;
+    urlHandle: string;
+    description: string;
 }
-
-

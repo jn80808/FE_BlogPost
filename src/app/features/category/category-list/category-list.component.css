@@ -1,0 +1,16 @@
+.btn-primary {
+    background-color: #134F5C !important;
+    border-color: #134F5C !important;
+    color: white !important;
+}
+
+.btn-primary:hover {
+    background-color: #0F3D47 !important; /* Slightly darker shade for hover effect */
+    border-color: #0D353E !important;
+    color: white !important;
+}
+
+.text{
+    color: #373535 !important;
+    font-family: "Dancing Script", cursive;
+}
