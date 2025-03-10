@@ -21,6 +21,14 @@ export class EditCategoryComponent implements OnInit, OnDestroy{
     this.paramsSubscription =  this.route.paramMap.subscribe({
       next: (param) =>{
         this.id =  param.get('id');
+
+        if (this.id){
+          // get the data from the API for this category Id
+
+          
+        }
+
+
       }
     })
   }
