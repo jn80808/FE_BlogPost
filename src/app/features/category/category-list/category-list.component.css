@@ -10,7 +10,59 @@
     color: white !important;
 }
 
+/* Table Header Custom Color */
+.table-dark {
+    background-color: #134F5C !important;
+    color: white !important; /* Ensures text remains white */
+}
+
+
 .text{
     color: #373535 !important;
     font-family: "Dancing Script", cursive;
 }
+
+
+/* Button container to center and space buttons evenly */
+
+/* Button Container */
+.button-group {
+    display: flex;
+    justify-content: center; /* Centers buttons and adds equal spacing */
+    gap: 15px; /* Even spacing between buttons */
+}
+/* Button Container */
+.button-group {
+    display: flex;
+    justify-content: center; /* Centers buttons */
+    gap: 15px; /* Equal spacing between buttons */
+}
+
+/* General Button Styling (Matches .custom-btn) */
+.custom-btn {
+    color: white !important;  /* Ensures text color remains white */
+    border: none;
+    padding: 7px 14px;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+/* Edit (Update) Button */
+.edit-btn {
+    background-color: #ffc369; /* Primary color for Edit */
+}
+
+.edit-btn:hover {
+    background-color: #EB5B00; /* Hover color for Edit */
+}
+
+/* Delete Button */
+.delete-btn {
+    background-color: #f88a9c; /* Primary color for Delete */
+}
+
+.delete-btn:hover {
+    background-color: #E73879; /* Hover color for Delete */
+}
+
