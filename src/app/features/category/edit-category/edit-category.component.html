@@ -1,0 +1,48 @@
+<div class="container mt-5">
+    <h1 class="text-center mb-4 custom-heading">Edit Category</h1>
+
+    <ng-container *ngIf="category; else notfound">
+        <form #form="ngForm" (ngSubmit)="onFormSubmit()" class="p-4 border rounded shadow-sm bg-light mx-auto" style="max-width: 400px;">
+        
+            <!-- Category ID (Disabled) -->
+            <div class="mb-3">
+                <label for="id" class="form-label fw-bold">ID</label>
+                <input type="text" class="form-control" id="id" name="id" [(ngModel)]="category.id" disabled >
+            </div>
+
+            <!-- Category Name -->
+            <div class="mb-3">
+                <label for="categoryName" class="form-label fw-bold">Category Name</label>
+                <input type="text" 
+                class="form-control" id="categoryName" 
+                placeholder="Enter category name" name="categoryName" [(ngModel)]="category.name"
+                >
+            </div>
+
+            <!-- Description -->
+            <div class="mb-3">
+                <label for="description" class="form-label fw-bold">Description</label>
+                <input type="text" class="form-control" id="description" 
+                placeholder="Enter description" name="description" [(ngModel)]="category.description"
+                >
+            </div>
+
+            <!-- URL Handle -->
+            <div class="mb-3">
+                <label for="urlHandle" class="form-label fw-bold">Category URL Handle</label>
+                <input type="text" class="form-control" id="urlHandle" 
+                placeholder="Enter category URL handle" name="urlHandle" [(ngModel)]="category.urlHandle"
+               >
+            </div>
+
+            <!-- Buttons -->
+            <button type="submit" class="btn custom-btn w-100">Save Changes</button>
+        </form>
+    </ng-container>
+
+    <ng-template #notfound>
+        <div class="alert alert-warning text-center" role="alert">
+            Category Not Found!
+        </div>
+    </ng-template>
+</div>
