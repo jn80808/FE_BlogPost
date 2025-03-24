@@ -7,7 +7,8 @@
             <!-- Category ID (Disabled) -->
             <div class="mb-3">
                 <label for="id" class="form-label fw-bold">ID</label>
-                <input type="text" class="form-control" id="id" name="id" [(ngModel)]="category.id" disabled >
+                <input type="text" class="form-control" id="id" name="id" 
+                [(ngModel)]="category.id" disabled >
             </div>
 
             <!-- Category Name -->
@@ -15,7 +16,8 @@
                 <label for="categoryName" class="form-label fw-bold">Category Name</label>
                 <input type="text" 
                 class="form-control" id="categoryName" 
-                placeholder="Enter category name" name="categoryName" [(ngModel)]="category.name"
+                placeholder="Enter category name" name="categoryName" 
+                [(ngModel)]="category.name"
                 >
             </div>
 
@@ -23,7 +25,8 @@
             <div class="mb-3">
                 <label for="description" class="form-label fw-bold">Description</label>
                 <input type="text" class="form-control" id="description" 
-                placeholder="Enter description" name="description" [(ngModel)]="category.description"
+                placeholder="Enter description" name="description" 
+                [(ngModel)]="category.description"
                 >
             </div>
 
@@ -31,7 +34,8 @@
             <div class="mb-3">
                 <label for="urlHandle" class="form-label fw-bold">Category URL Handle</label>
                 <input type="text" class="form-control" id="urlHandle" 
-                placeholder="Enter category URL handle" name="urlHandle" [(ngModel)]="category.urlHandle"
+                placeholder="Enter category URL handle" name="urlHandle" 
+                [(ngModel)]="category.urlHandle"
                >
             </div>
 
@@ -40,9 +44,11 @@
         </form>
     </ng-container>
 
+    <!-- for the id is not found -->
     <ng-template #notfound>
         <div class="alert alert-warning text-center" role="alert">
             Category Not Found!
         </div>
     </ng-template>
+
 </div>
