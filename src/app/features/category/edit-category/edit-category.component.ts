@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { CategoryService } from '../services/category.service';
 import { Category } from '../models/category.model';
@@ -14,11 +14,13 @@ export class EditCategoryComponent implements OnInit, OnDestroy{
 
   id : string | null = null;
   paramsSubscription?: Subscription;
+  editCategorySubscription?: Subscription;
   category?: Category;
   
 
   constructor (private route : ActivatedRoute,
-    private categoryService: CategoryService){
+    private categoryService: CategoryService,
+    private router: Router){
 
   }
  
@@ -48,11 +50,20 @@ export class EditCategoryComponent implements OnInit, OnDestroy{
       description : this.category?.description ?? ''
     }
     //pass this object to service
+    if (this.id){
+       this.editCategorySubscription = this.categoryService.updateCategory(this.id,updateCategoryRequest)
+          .subscribe({
+          next:(response) =>{
+            this.router.navigateByUrl('/categories');
+        }
+      })
+    }
 
   }
 
   ngOnDestroy(): void {
     this.paramsSubscription?.unsubscribe();
+    this.editCategorySubscription?.unsubscribe();
   }
   
 
