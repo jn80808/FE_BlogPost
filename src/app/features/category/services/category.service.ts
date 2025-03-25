@@ -31,7 +31,10 @@ export class CategoryService {
 
   }
 
-
+  deleteCategory(id: string): Observable<void> {
+    return this.http.delete<void>(`${environment.apiBaseUrl}/api/BlogCategory/${id}`);
+  }
+  
 
 }
 
