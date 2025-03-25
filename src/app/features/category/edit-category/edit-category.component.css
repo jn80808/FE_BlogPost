@@ -11,6 +11,11 @@
     background-color: #134F5C;
     color: white;
     border: none;
+    height: 35px; /* Adjust as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem; /* Keep text size consistent */
 }
 
 .custom-btn:hover {

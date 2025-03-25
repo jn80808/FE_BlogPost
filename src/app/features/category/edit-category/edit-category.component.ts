@@ -66,7 +66,9 @@ export class EditCategoryComponent implements OnInit, OnDestroy{
     this.editCategorySubscription?.unsubscribe();
   }
   
-
+  onDelete() : void{
+    
+  }
     
 
 }
