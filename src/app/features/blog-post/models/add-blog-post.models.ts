@@ -1,4 +1,4 @@
-export interface addBlogPost {
+export interface AddBlogPost {
     //id?: string; // Optional since it  be generated on the backend
     title: string;
     shortDescription: string;

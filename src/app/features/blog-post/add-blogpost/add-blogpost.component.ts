@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from '../../category/services/category.service';
 import { Category } from '../../category/models/category.model';
+import { AddBlogPost } from '../models/add-blog-post.models';
 
 @Component({
   selector: 'app-add-blogpost',
@@ -9,8 +10,22 @@ import { Category } from '../../category/models/category.model';
 })
 export class AddBlogpostComponent implements OnInit {
   categories: Category[] = []; // Store categories
+  model:AddBlogPost;
 
-  constructor(private categoryService: CategoryService) {}
+  constructor(private categoryService: CategoryService) {
+    this.model = {
+      title: '',
+      shortDescription: '',
+      content: '',
+      featureImageUrl: '',
+      authorName: '',
+      urlHandle: '',
+      publishedDate: new Date(),  
+      isVisible: true,
+      categoryId: '',  
+      isPublished: true
+    };
+  }
 
   ngOnInit(): void {
     this.loadCategories();
