@@ -10,7 +10,7 @@ import { AddBlogPost } from '../models/add-blog-post.models';
 })
 export class AddBlogpostComponent implements OnInit {
   categories: Category[] = []; // Store categories
-  model:AddBlogPost;
+  model: AddBlogPost;
 
   constructor(private categoryService: CategoryService) {
     this.model = {
@@ -26,6 +26,12 @@ export class AddBlogpostComponent implements OnInit {
       isPublished: true
     };
   }
+
+  onFormSubmit():void{
+
+  }
+
+
 
   ngOnInit(): void {
     this.loadCategories();
