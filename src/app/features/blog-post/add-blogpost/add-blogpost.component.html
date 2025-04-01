@@ -61,7 +61,10 @@
                id="publishedDate" 
                name="publishedDate"
                class="form-control"
-               [(ngModel)]="model.publishedDate">
+               value="{{model.publishedDate}}"
+               [ngModel]="model.publishedDate | date:'yyyy-MM-dd'"
+               (ngModelChange)="model.publishedDate = $event"
+               >
 
         <!-- Category Dropdown -->
         <label for="category">Category:</label>
