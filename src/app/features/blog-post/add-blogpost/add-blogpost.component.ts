@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CategoryService } from '../../category/services/category.service';
 import { Category } from '../../category/models/category.model';
 import { AddBlogPost } from '../models/add-blog-post.models';
+import { BlogPostService } from '../services/blog-post.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-blogpost',
@@ -13,7 +15,9 @@ export class AddBlogpostComponent implements OnInit {
   model: AddBlogPost;
   
 
-  constructor(private categoryService: CategoryService) {
+  constructor(private categoryService: CategoryService, 
+    private blogPostService: BlogPostService,
+    private router: Router) {
     this.model = {
       title: '',
       shortDescription: '',
@@ -28,10 +32,21 @@ export class AddBlogpostComponent implements OnInit {
     };
   }
 
-  onFormSubmit():void{
-    console.log(this.model);
+  
+  onFormSubmit(): void {
+    console.log('Form Data:', this.model); // Debugging output
+    this.blogPostService.createBlogPost(this.model)
+      .subscribe({
+        next: (response) => {
+          console.log('Blog post created:', response);
+          this.router.navigateByUrl('/blogposts');
+        },
+        error: (err) => {
+          console.error('Error creating blog post:', err);
+        }
+      });
   }
-
+  
 
 
   ngOnInit(): void {

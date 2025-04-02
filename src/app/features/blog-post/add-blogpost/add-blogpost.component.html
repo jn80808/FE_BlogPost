@@ -58,13 +58,12 @@
         <!-- Published Date Column -->
         <label for="publishedDate">Published Date:</label>
         <input type="date" 
-               id="publishedDate" 
-               name="publishedDate"
-               class="form-control"
-               value="{{model.publishedDate}}"
-               [ngModel]="model.publishedDate | date:'yyyy-MM-dd'"
-               (ngModelChange)="model.publishedDate = $event"
-               >
+        id="publishedDate" 
+        name="publishedDate"
+        class="form-control"
+        [ngModel]="model.publishedDate | date:'yyyy-MM-dd'"
+        (ngModelChange)="model.publishedDate = $event">
+ 
 
         <!-- Category Dropdown -->
         <label for="category">Category:</label>
