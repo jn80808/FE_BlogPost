@@ -39,6 +39,7 @@ export class AddBlogpostComponent implements OnInit {
   }
 
   
+  //to get the list of categories for the dropdown 
   loadCategories(): void {
     this.categoryService.getAllCategories().subscribe({
       next: (data) => {
