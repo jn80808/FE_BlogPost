@@ -1,5 +1,5 @@
 export interface AddBlogPost {
-    //id?: string; // Optional since it  be generated on the backend
+    //id?: string;
     title: string;
     shortDescription: string;
     content: string;

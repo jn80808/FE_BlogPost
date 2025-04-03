@@ -34,7 +34,13 @@ export class AddBlogpostComponent implements OnInit {
 
   
   onFormSubmit(): void {
+    if (!this.model.categoryId) {
+      console.error('Category ID is required');
+      return;
+    }
+  
     console.log('Form Data:', this.model); // Debugging output
+  
     this.blogPostService.createBlogPost(this.model)
       .subscribe({
         next: (response) => {
