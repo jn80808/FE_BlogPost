@@ -23,11 +23,26 @@
 
         <!-- Content Column -->
         <label for="content">Content:</label>
-        <textarea id="content" 
+        <div class="d-flex flex-row">
+            <div class="col-6 p-2">
+                <!-- admin write the markdown script -->
+                <textarea 
+                  id="content" 
                   name="content" 
                   required
                   class="form-control"
-                  [(ngModel)]="model.content"></textarea>
+                  style="height: 350px; max-height: 350px;"
+                  [(ngModel)]="model.content">
+                </textarea> 
+            </div>
+            <div class="col-6 p-2" style="max-height: 350px; overflow-y:scroll">
+                <!-- Preview of the markdown by converting to HTML  -->
+                <markdown [data]="model.content"></markdown>
+
+            </div>
+        </div>
+
+
 
         <!-- Feature Image URL Column -->
         <label for="featureImageUrl">Feature Image URL:</label>
