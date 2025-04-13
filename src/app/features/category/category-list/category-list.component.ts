@@ -24,16 +24,14 @@ ngOnInit(): void {
   this.categories$ = this.categoryService.getAllCategories();
 }
 
-onDelete() : void{
-  if (this.id){
-    this.categoryService.deleteCategory(this.id)
+onDelete(id: string): void {
+  this.categoryService.deleteCategory(id)
     .subscribe({
-      next:(response) => {
-        this.router.navigateByUrl('/categories');
+      next: (response) => {
+        // Refresh the list after delete
+        this.categories$ = this.categoryService.getAllCategories();
       }
-    })
-  }
+    });
 }
-  
 
 }

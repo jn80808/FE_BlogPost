@@ -1,0 +1,59 @@
+/* Primary Button Styling */
+.btn-primary {
+    background-color: #134F5C !important;
+    border-color: #134F5C !important;
+    color: white !important;
+}
+
+.btn-primary:hover {
+    background-color: #0F3D47 !important;
+    border-color: #0D353E !important;
+    color: white !important;
+}
+
+/* Table Header Custom Color */
+.table-dark {
+    background-color: #134F5C !important;
+    color: white !important;
+}
+
+/* Custom Heading Text Styling */
+.text {
+    color: #373535 !important;
+    font-family: "Dancing Script", cursive;
+}
+
+/* Button Container */
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* General Custom Button Style */
+.custom-btn {
+    color: white !important;
+    border: none;
+    padding: 7px 14px;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+/* Edit Button */
+.edit-btn {
+    background-color: #E9762B;
+}
+
+.edit-btn:hover {
+    background-color: #EB5B00;
+}
+
+/* Delete Button */
+.delete-btn {
+    background-color: #f88a9c;
+}
+
+.delete-btn:hover {
+    background-color: #E73879;
+}
