@@ -19,7 +19,7 @@
         <tbody class="table-group-divider">
           <tr *ngFor="let post of blogPosts">
             <td>{{ post.title }}</td>
-            <td>{{ post.shortDescription }}</td>
+            <td class="short-description">{{ post.shortDescription }}</td>
             <td>{{ post.authorName }}</td>
             <td>{{ post.isVisible ? 'Yes' : 'No' }}</td>
             <td>

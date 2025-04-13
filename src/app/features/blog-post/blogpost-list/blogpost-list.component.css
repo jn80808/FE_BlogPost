@@ -57,3 +57,11 @@
 .delete-btn:hover {
     background-color: #E73879;
 }
+
+/* Restrict the short description column */
+.short-description {
+    max-width: 450px; /* Adjust width as needed */
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
