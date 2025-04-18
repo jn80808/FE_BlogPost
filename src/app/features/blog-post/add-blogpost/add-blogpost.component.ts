@@ -13,11 +13,12 @@ import { Router } from '@angular/router';
 export class AddBlogpostComponent implements OnInit {
   categories: Category[] = []; // Store categories
   model: AddBlogPost;
-  
 
-  constructor(private categoryService: CategoryService, 
+  constructor(
+    private categoryService: CategoryService,
     private blogPostService: BlogPostService,
-    private router: Router) {
+    private router: Router
+  ) {
     this.model = {
       title: '',
       shortDescription: '',
@@ -25,22 +26,25 @@ export class AddBlogpostComponent implements OnInit {
       featureImageUrl: '',
       authorName: '',
       urlHandle: '',
-      publishedDate: new Date(),  
+      publishedDate: new Date(),
       isVisible: true,
-      categoryId: '',  
-      isPublished: true
+      isPublished: true,
+      categories: [] //  updated from categoryIds to categories since dtoblogpost is categories 
     };
   }
 
-  
+  ngOnInit(): void {
+    this.loadCategories();
+  }
+
   onFormSubmit(): void {
-    if (!this.model.categoryId) {
-      console.error('Category ID is required');
+    if (!this.model.categories || this.model.categories.length === 0) {
+      console.error('At least one category is required');
       return;
     }
-  
-    console.log('Form Data:', this.model); // Debugging output
-  
+
+    console.log('Form Data:', this.model);
+
     this.blogPostService.createBlogPost(this.model)
       .subscribe({
         next: (response) => {
@@ -52,15 +56,16 @@ export class AddBlogpostComponent implements OnInit {
         }
       });
   }
-  
 
-
-  ngOnInit(): void {
-    this.loadCategories();
+  toggleCategory(categoryId: string): void {
+    const index = this.model.categories.indexOf(categoryId);
+    if (index === -1) {
+      this.model.categories.push(categoryId);
+    } else {
+      this.model.categories.splice(index, 1);
+    }
   }
 
-  
-  //to get the list of categories for the dropdown 
   loadCategories(): void {
     this.categoryService.getAllCategories().subscribe({
       next: (data) => {
@@ -72,5 +77,3 @@ export class AddBlogpostComponent implements OnInit {
     });
   }
 }
-
-
