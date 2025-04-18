@@ -1,3 +1,5 @@
+import { Category } from "../../category/models/category.model";
+
 export interface BlogPost{
     id?: string; 
     title: string;
@@ -11,4 +13,5 @@ export interface BlogPost{
     categoryId?: string | null; // Nullable Foreign Key
     //createdAt?: Date; // Auto-generated on the backend
     isPublished: boolean;   
+    categories: Category[];
 }

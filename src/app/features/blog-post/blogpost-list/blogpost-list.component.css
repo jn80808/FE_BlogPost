@@ -3,65 +3,116 @@
     background-color: #134F5C !important;
     border-color: #134F5C !important;
     color: white !important;
-}
-
-.btn-primary:hover {
+  }
+  
+  .btn-primary:hover {
     background-color: #0F3D47 !important;
     border-color: #0D353E !important;
     color: white !important;
-}
-
-/* Table Header Custom Color */
-.table-dark {
+    box-shadow: 0 0 10px rgba(19, 79, 92, 0.4);
+  }
+  
+  /* Table Header Custom Color */
+  .table-dark {
     background-color: #134F5C !important;
     color: white !important;
-}
-
-/* Custom Heading Text Styling */
-.text {
+  }
+  
+  .table {
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+  }
+  
+  .table td,
+  .table th {
+    vertical-align: middle;
+    padding: 12px;
+    border-color: #dee2e6;
+  }
+  
+  .table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  /* Custom Heading Text Styling */
+  .text {
     color: #373535 !important;
     font-family: "Dancing Script", cursive;
-}
-
-/* Button Container */
-.button-group {
+  }
+  
+  /* Button Container */
+  .button-group {
     display: flex;
     justify-content: center;
-    gap: 15px;
-}
-
-/* General Custom Button Style */
-.custom-btn {
+    gap: 12px;
+  }
+  
+  /* General Custom Button Style */
+  .custom-btn {
     color: white !important;
     border: none;
     padding: 7px 14px;
     font-weight: bold;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-}
-
-/* Edit Button */
-.edit-btn {
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Edit Button */
+  .edit-btn {
     background-color: #E9762B;
-}
-
-.edit-btn:hover {
+  }
+  
+  .edit-btn:hover {
     background-color: #EB5B00;
-}
-
-/* Delete Button */
-.delete-btn {
+    box-shadow: 0 0 8px rgba(233, 118, 43, 0.5);
+  }
+  
+  /* Delete Button */
+  .delete-btn {
     background-color: #f88a9c;
-}
-
-.delete-btn:hover {
+  }
+  
+  .delete-btn:hover {
     background-color: #E73879;
-}
-
-/* Restrict the short description column */
-.short-description {
-    max-width: 450px; /* Adjust width as needed */
+    box-shadow: 0 0 8px rgba(231, 56, 121, 0.5);
+  }
+  
+  /* Short Description Text */
+  .short-description {
+    max-width: 350px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .short-description:hover {
     white-space: normal;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-}
+    background-color: #f4f4f4;
+    padding: 5px;
+    border-radius: 4px;
+  }
+  
+  /* Category Badge */
+  .badge {
+    font-size: 0.75rem;
+    padding: 6px 10px;
+    border-radius: 12px;
+  }
+  
+  /* Responsive Fixes */
+  @media (max-width: 768px) {
+    .table {
+      font-size: 0.875rem;
+    }
+  
+    .custom-btn {
+      padding: 6px 10px;
+    }
+  
+    .short-description {
+      max-width: 250px;
+    }
+  }
+  

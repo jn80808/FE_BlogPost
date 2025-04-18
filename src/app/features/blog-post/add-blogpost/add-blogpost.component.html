@@ -1,8 +1,9 @@
 <div class="container">
-    <h1 class="mt-3">Add BlogPost</h1>
+    <h1 class="mt-3 text-primary text">Add BlogPost</h1>
+
 
     <form class="blogpost-form" #form="ngForm" (ngSubmit)="onFormSubmit()">
-        <h2>Create a Blog Post</h2>
+        <h1 class="text-center mb-4 custom-heading">Add Blog Post</h1>
 
         <!-- Title Column -->
         <label for="title">Title:</label>
@@ -46,11 +47,20 @@
 
         <!-- Feature Image URL Column -->
         <label for="featureImageUrl">Feature Image URL:</label>
+
+        <ng-container *ngIf="model.featureImageUrl !== ''">
+        <div>
+            <img [src]="model.featureImageUrl" height="200px" class="my-3">
+        </div>
+        </ng-container>
+
         <input type="url" 
-               id="featureImageUrl" 
-               name="featureImageUrl"
-               class="form-control"
-               [(ngModel)]="model.featureImageUrl">
+            id="featureImageUrl" 
+            name="featureImageUrl"
+            class="form-control"
+            [(ngModel)]="model.featureImageUrl">
+
+            <!-- https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BB1msG0V?w=0&h=0&q=60&m=6&f=jpg&u=t -->
 
         <!-- Author Name Column -->
         <label for="authorName">Author Name:</label>
