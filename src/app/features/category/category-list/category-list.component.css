@@ -12,10 +12,19 @@
 
 /* Table Header Custom Color */
 .table-dark {
-    background-color: #134F5C !important;
+    background-color: #077A7D !important;
     color: white !important; /* Ensures text remains white */
 }
 
+.custom-table-header {
+    background-color: #077A7D !important;
+  }
+  
+  .custom-table-header th {
+    background-color: #077A7D!important;
+    color: white !important;
+  }
+  
 
 .text{
     color: #373535 !important;

@@ -12,12 +12,21 @@
     box-shadow: 0 0 10px rgba(19, 79, 92, 0.4);
   }
   
-  /* Table Header Custom Color */
+/* Table Header Custom Color */
   .table-dark {
-    background-color: #134F5C !important;
+    background-color: #077A7D !important;
+    color: white !important; /* Ensures text remains white */
+  }
+
+  .custom-table-header {
+    background-color: #077A7D !important;
+  }
+
+  .custom-table-header th {
+    background-color: #077A7D!important;
     color: white !important;
   }
-  
+
   .table {
     border-radius: 8px;
     overflow: hidden;
