@@ -14,4 +14,5 @@ export interface BlogPost{
     //createdAt?: Date; // Auto-generated on the backend
     isPublished: boolean;   
     categories: Category[];
+    category: string[];
 }

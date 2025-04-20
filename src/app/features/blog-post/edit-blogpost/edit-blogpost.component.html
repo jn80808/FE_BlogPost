@@ -91,7 +91,7 @@
             (ngModelChange)="model.publishedDate = $event">
             
             <!-- Category Dropdown -->
-            <!-- <div class="mb-3">
+            <div class="mb-3">
                 <label for="categoryDropdown" class="form-label fw-bold">Category:</label>
             
                 <div class="dropdown w-100">
@@ -114,7 +114,7 @@
                         type="checkbox"
                         [id]="'category_' + category.id"
                         class="form-check-input"
-                        [checked]="model.categories.includes(category.id)"
+                        [checked]="modelEdit?.categories?.includes(category.id)"
                         (change)="toggleCategory(category.id)">
                     
                     <label 
@@ -127,7 +127,7 @@
                 </ul>
                 </div>
             </div>
-    -->
+   
 
             <!-- Is Visible Column -->
             <div class="form-check">
