@@ -1,11 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { BlogPostService } from '../services/blog-post.service';
 import { BlogPost } from '../models/blog-post.model';
 import { CategoryService } from '../../category/services/category.service';
 import { Category } from '../../category/models/category.model';
-import { EditBlogPost } from '../models/Edit-blog-post';
+import { UpdateBlogPost } from '../models/Update-blog-post';
+
 
 @Component({
   selector: 'app-edit-blogpost',
@@ -16,15 +17,20 @@ export class EditBlogpostComponent implements OnInit, OnDestroy {
 
   categories: Category[] = []; // Store categories
   id:string | null = null;
-  routeSubscription?: Subscription
   model?: BlogPost
-  modelEdit?:EditBlogPost
+  modelUpdate?:UpdateBlogPost
   categories$?: Observable<Category[]>;
+  selectedCategories?:string[]
+
+  routeSubscription?: Subscription;
+  updateBlogPostSubscription?: Subscription;
+  getBlogPostSubscription?: Subscription;
 
   constructor (
     private categoryService: CategoryService,
     private route: ActivatedRoute,
-    private blogPostService: BlogPostService
+    private blogPostService: BlogPostService,
+    private router:Router
     ){
 
   }
@@ -33,16 +39,16 @@ export class EditBlogpostComponent implements OnInit, OnDestroy {
    
   this.loadCategories(); // Fetch categories from the service
 
-   this.categories$ = this.categoryService.getAllCategories();
+  this.categories$ = this.categoryService.getAllCategories();
 
-    // Get blog post ID from the route and fetch the blog post
-    this.routeSubscription = this.route.paramMap.subscribe({
+  // Get blog post ID from the route and fetch the blog post
+  this.routeSubscription = this.route.paramMap.subscribe({
       next:(params) => {
        this.id = params.get('id');
 
         //Get BlogPost from API 
         if(this.id){
-          this.blogPostService.getBlogPostById(this.id).subscribe({
+          this.getBlogPostSubscription = this.blogPostService.getBlogPostById(this.id).subscribe({
             next: (response) =>{
               this.model = response;
 
@@ -67,24 +73,53 @@ export class EditBlogpostComponent implements OnInit, OnDestroy {
 
   //Toggle category ID in the selected categories list
   toggleCategory(categoryId: string): void {
-    if (!this. modelEdit) return;
-
-    const index = this. modelEdit.categories.indexOf(categoryId);
-
+    if (!this.model) return;
+  
+    if (!this.model.category) {
+      this.model.category = [];
+    }
+  
+    const index = this.model.category.indexOf(categoryId);
+  
     if (index === -1) {
-      this. modelEdit.categories.push(categoryId); //  Add category if not already selected
+      this.model.category.push(categoryId);
     } else {
-      this. modelEdit.categories.splice(index, 1); //  Remove category if already selected
+      this.model.category.splice(index, 1);
     }
   }
+  
 
   onFormSubmit():void{
-    
+    //Convert the model to Request Object 
+    if (this.model && this.id){
+      var UpdateBlogPost: UpdateBlogPost ={
+            authorName: this.model.authorName,
+            content: this.model.content,
+            shortDescription: this.model.shortDescription,
+            featureImageUrl: this.model.featureImageUrl,
+            isVisible: this.model.isVisible,
+            isPublished: this.model.isVisible,
+            publishedDate: this.model.publishedDate,
+            title: this.model.title,
+            urlHandle: this.model.urlHandle,
+            categories: this.model.category
+
+      };
+
+      this.updateBlogPostSubscription = this.blogPostService.updateBlogPost(this.id, UpdateBlogPost)
+      .subscribe({
+        next: (response) =>{
+          this.router.navigateByUrl('/blogposts');//back to blogpostlist page 
+        }
+      });
+    }
   }
 
 
   ngOnDestroy(): void {
     this.routeSubscription?.unsubscribe();
+    this.updateBlogPostSubscription?.unsubscribe();
+    this.getBlogPostSubscription?.unsubscribe();
   }
 
 

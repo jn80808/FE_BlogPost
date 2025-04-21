@@ -114,7 +114,7 @@
                         type="checkbox"
                         [id]="'category_' + category.id"
                         class="form-check-input"
-                        [checked]="modelEdit?.categories?.includes(category.id)"
+                        [checked]="modelUpdate?.categories?.includes(category.id)"
                         (change)="toggleCategory(category.id)">
                     
                     <label 
