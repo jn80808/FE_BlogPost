@@ -149,8 +149,20 @@
                 <label for="isPublished" class="form-check-label">Published</label>
             </div>
 
-            <!-- Submit Button -->
-            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+            <div class="d-flex gap-2 w-100">
+                <!-- Save Changes Button -->
+                <button type="submit" class="btn btn-primary  w-100 text-center">
+                    Save Changes
+                </button>
+            
+                <!-- Delete Button -->
+                <button type="button" class="btn btn-primary  w-100 text-center" 
+                    (click)="onDelete()">
+                    Delete
+                </button>
+            </div>
+            
+
         </form>
     </ng-container>
 </div>

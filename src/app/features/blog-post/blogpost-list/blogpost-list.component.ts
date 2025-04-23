@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BlogPostService } from '../services/blog-post.service';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { BlogPost } from '../models/blog-post.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-blogpost-list',
@@ -11,8 +12,13 @@ import { BlogPost } from '../models/blog-post.model';
 export class BlogpostListComponent implements OnInit {
 
   blogPosts$?: Observable<BlogPost[]>;
+  deleteBlogPostSubscription?: Subscription;
+  id:string | null = null;
 
-constructor(private blogpostService: BlogPostService){
+constructor(
+  private blogpostService: BlogPostService,
+  private router:Router
+){
 
 }
 
@@ -20,5 +26,21 @@ constructor(private blogpostService: BlogPostService){
     //get all blog posts from API
     this.blogPosts$ = this.blogpostService.getAllBlogPost();
   }
+
+  onDelete(id: string): void {
+    console.log('Delete button clicked for ID:', id); // now this will show the correct ID
+  
+    this.deleteBlogPostSubscription = this.blogpostService.deleteBlogPost(id)
+      .subscribe({
+        next: (response) => {
+          console.log('Deleted successfully');
+          this.blogPosts$ = this.blogpostService.getAllBlogPost(); // Refresh list
+        },
+        error: (err) => {
+          console.error('Delete error:', err);
+        }
+      });
+  }
+  
 
 }
