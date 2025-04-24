@@ -11,7 +11,8 @@ import { UpdateBlogPost } from '../models/Update-blog-post';
 @Component({
   selector: 'app-edit-blogpost',
   templateUrl: './edit-blogpost.component.html',
-  styleUrls: ['./edit-blogpost.component.css']
+  styleUrls: ['./edit-blogpost.component.css'],
+
 })
 export class EditBlogpostComponent implements OnInit, OnDestroy {
 
