@@ -47,8 +47,15 @@
 
 
             <!-- Feature Image URL Column -->
-            <label for="featureImageUrl">Feature Image URL:</label>
-
+            <div class="label-button-row">
+                <button type="button" 
+                    class="btn btn-light" 
+                    (click)="openImageSelector()">
+                    Select Image
+                </button>
+                <label for="featureImageUrl">Feature Image URL</label>
+              </div>
+              
             <ng-container *ngIf="model.featureImageUrl !== ''">
             <div>
                 <img [src]="model.featureImageUrl" height="200px" class="my-3">
@@ -167,4 +174,30 @@
     </ng-container>
 </div>
 
-<app-image-selector></app-image-selector>
+
+<div class="images-container-modal" 
+    [ngClass]="{'d-block': isImageSelectorVisible,'d-none':!isImageSelectorVisible}">
+        <button type="button" class="btn btn-light" 
+                style="position: fixed; top:10px;right:10px" 
+                (click)="closeImageSelector()">
+                X
+        </button>
+    <!-- image-selector HTML  -->
+    <app-image-selector></app-image-selector>
+</div>
+
+
+ <div class="images-container-modal" 
+    [ngClass]="{'d-block': isImageSelectorVisible,'d-none':!isImageSelectorVisible}">
+        <button type="button" class="btn btn-light" 
+                style="position: fixed; top:10px;right:10px" 
+                (click)="closeImageSelector()">
+                X
+        </button>
+
+    <app-image-selector></app-image-selector>
+</div> 
+
+
+
+

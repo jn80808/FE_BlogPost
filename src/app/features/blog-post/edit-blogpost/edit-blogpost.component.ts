@@ -22,6 +22,7 @@ export class EditBlogpostComponent implements OnInit, OnDestroy {
   modelUpdate?:UpdateBlogPost
   categories$?: Observable<Category[]>;
   selectedCategories?:string[]
+  isImageSelectorVisible: boolean = false;
 
   routeSubscription?: Subscription;
   updateBlogPostSubscription?: Subscription;
@@ -115,6 +116,15 @@ export class EditBlogpostComponent implements OnInit, OnDestroy {
         }
       });
     }
+  }
+
+  openImageSelector():void{
+    this.isImageSelectorVisible = true;
+
+  }
+
+  closeImageSelector():void{
+    this.isImageSelectorVisible = false;
   }
 
   onDelete(): void {
