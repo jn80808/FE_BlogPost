@@ -1,4 +1,22 @@
-/* Theme Header */
+/* Ensure the body and html take up the full height */
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f2f5; /* Light background for the page */
+}
+
+/* Card Container */
+.card {
+  height: 100%;
+  max-height: 100vh; 
+  display: flex;
+  flex-direction: column;
+}
+
+/* Card Header */
 .theme-header {
   background-color: #0f3c46;
   color: white;
@@ -8,35 +26,26 @@
   text-align: center;
 }
 
-/* Theme Button */
-.theme-btn {
-  background-color: #0f3c46;
-  color: white;
-  border: none;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+/* Card Body */
+.card-body {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row; /* Layout: gallery + form side by side */
+  gap: 1rem; /* Space between columns */
+  overflow: hidden; /* Prevent content from overflowing */
 }
 
-.theme-btn:hover {
-  background-color: #0d333c;
-  transform: translateY(-2px);
+/* Image Gallery Section */
+.col-8 {
+  height: 100%; /* Stretch the gallery section vertically */
 }
 
-/* Preview Section */
-.preview-section {
-  background-color: #f8f9fa;
-  border-radius: 1rem;
-  padding: 1rem;
-  text-align: center;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-}
-
-/* Image Gallery */
 .image-gallery {
   display: grid;
-  grid-template-columns: repeat(6, 1fr); /* 6 columns */
+  grid-template-columns: repeat(6, 1fr); /* 6 columns desktop */
   gap: 1rem;
   overflow-y: auto;
-  max-height: 400px;
+  height: 100%; /* Fill available height */
   padding: 1rem;
 }
 
@@ -72,7 +81,34 @@
   font-size: 0.9rem;
 }
 
-/* Upload Form */
+/* Upload Form Section */
+.col-lg-4, .col-md-6, .col-sm-12 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.card-container {
+  width: 100%;
+  max-width: 600px;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  min-height: 70vh;
+}
+
+.w-100 {
+  width: 100%;
+  max-width: 600px;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Upload Form Styles */
 .upload-form {
   background-color: #f8f9fa;
   border-radius: 1rem;
@@ -88,21 +124,56 @@
   margin-bottom: 1rem;
 }
 
+/* Preview Section */
+.preview-section {
+  background-color: #f8f9fa;
+  border-radius: 1rem;
+  padding: 1rem;
+  text-align: center;
+  margin-top: 1rem;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.preview-section img {
+  max-height: 350px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+/* Theme Button */
+.theme-btn {
+  background-color: #0f3c46;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.theme-btn:hover {
+  background-color: #0d333c;
+  transform: translateY(-2px);
+}
+
 /* Responsive Design */
-@media (max-width: 1200px) {
+@media (max-width: 5200px) {
   .image-gallery {
-    grid-template-columns: repeat(4, 1fr); /* 4 columns for tablets */
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
 @media (max-width: 768px) {
+  .card-body {
+    flex-direction: column; /* Stack vertically on smaller screens */
+  }
+
   .image-gallery {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns for small devices */
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 576px) {
   .image-gallery {
-    grid-template-columns: repeat(1, 1fr); /* 1 column for very small screens */
+    grid-template-columns: repeat(1, 1fr);
   }
 }
