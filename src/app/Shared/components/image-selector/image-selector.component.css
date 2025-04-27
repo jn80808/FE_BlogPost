@@ -1,0 +1,20 @@
+.theme-header {
+    background-color: #0f3c46;
+    color: white;
+  }
+  
+  .theme-btn {
+    background-color: #0f3c46;
+    color: white;
+  }
+  
+  .theme-btn:hover {
+    background-color: #0d333c; /* slightly darker on hover */
+    color: white;
+  }
+  
+  .preview-section {
+    background-color: #f8f9fa; /* Bootstrap's light gray */
+    border-radius: 1rem;
+  }
+  
