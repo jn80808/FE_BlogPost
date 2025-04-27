@@ -1,21 +1,30 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ImageService } from './image.service';
+import { Observable } from 'rxjs';
+import { BlogImage } from '../../model/blog-Image.model';
 
 @Component({
   selector: 'app-image-selector',
   templateUrl: './image-selector.component.html',
   styleUrls: ['./image-selector.component.css']
 })
-export class ImageSelectorComponent {
+export class ImageSelectorComponent implements OnInit{
 
 
   file?: File;
   fileName: string ='';
   title: string ='';
   previewUrl: string = '';
+  image$?:  Observable<BlogImage[]>;
+
 
   constructor(private imageService: ImageService){
+    
+  }
 
+
+  ngOnInit(): void {
+   this.getImages();
   }
 
   onFileUploadChange(event : Event): void {
@@ -32,8 +41,18 @@ export class ImageSelectorComponent {
         .subscribe({
           next: (response) => {
             console.log(response);
+            this.getImages();
           }
         });
     }
   }
+
+  private getImages(){
+    this.image$ = this.imageService.getAllImage();
+  }
+
+
+
+
+
 }  
