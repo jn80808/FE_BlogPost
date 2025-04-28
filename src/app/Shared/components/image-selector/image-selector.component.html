@@ -7,55 +7,56 @@
     <div class="card-body">
       <div class="row d-flex flex-md-row flex-sm-column flex-wrap">
   
-        <!-- Image Gallery Section -->
-        <div class="col-8 p-4">
-          <div class="image-gallery">
-            <ng-container *ngIf="image$ | async as images">
-              <div *ngFor="let image of images" class="image-card" >
-                <img [src]="image.url" [alt]="image.title" [title]="image.title">
-                <span>{{ image.title }}</span>
-              </div>
-            </ng-container>
+    <!-- Image Gallery Section -->
+    <div class="col-8 p-4">
+      <div class="image-gallery">
+        <ng-container *ngIf="image$ | async as images">
+          <div *ngFor="let image of images" class="image-card" (click)="selectimage(image)">
+            <img [src]="image.url" [alt]="image.title" [title]="image.title">
+            <span>{{ image.title }}</span>
           </div>
-        </div>
+        </ng-container>
+      </div>
+    </div>
+
         
     <!-- Upload Form Section -->
-<div class="col-lg-4 col-md-6 col-sm-12 d-flex align-items-center justify-content-center p-4">
+      <div class="col-lg-4 col-md-6 col-sm-12 d-flex align-items-center justify-content-center p-4">
 
-    <div class="card-container w-100">
-      <form #form="ngForm" (ngSubmit)="uploadImage()">
-  
-        <div class="mb-4">
-          <label class="form-label fw-bold">Select Image</label>
-          <input type="file" class="form-control" (change)="onFileUploadChange($event)" required>
+          <div class="card-container w-100">
+            <form #form="ngForm" (ngSubmit)="uploadImage()">
+        
+              <div class="mb-4">
+                <label class="form-label fw-bold">Select Image</label>
+                <input type="file" class="form-control" (change)="onFileUploadChange($event)" required>
+              </div>
+        
+              <div class="mb-4">
+                <label class="form-label fw-bold">File Name</label>
+                <input type="text" class="form-control" placeholder="Enter file name" name="fileName" [(ngModel)]="fileName" required>
+              </div>
+        
+              <div class="mb-4">
+                <label class="form-label fw-bold">Title</label>
+                <input type="text" class="form-control" placeholder="Enter title" name="title" [(ngModel)]="title" required>
+              </div>
+        
+              <div class="d-grid">
+                <button type="submit" class="btn theme-btn">Upload</button>
+              </div>
+        
+            </form>
+        
+            <!-- Preview Section -->
+            <div *ngIf="previewUrl" class="preview-section mt-4 text-center">
+              <img [src]="previewUrl" alt="Image Preview" class="img-fluid rounded shadow-sm" style="max-height: 350px;">
+            </div>
+        
+            <div *ngIf="!previewUrl" class="text-secondary mt-3 text-center">
+              No image selected.
+            </div>
+        
+          </div>
+        
         </div>
-  
-        <div class="mb-4">
-          <label class="form-label fw-bold">File Name</label>
-          <input type="text" class="form-control" placeholder="Enter file name" name="fileName" [(ngModel)]="fileName" required>
-        </div>
-  
-        <div class="mb-4">
-          <label class="form-label fw-bold">Title</label>
-          <input type="text" class="form-control" placeholder="Enter title" name="title" [(ngModel)]="title" required>
-        </div>
-  
-        <div class="d-grid">
-          <button type="submit" class="btn theme-btn">Upload</button>
-        </div>
-  
-      </form>
-  
-      <!-- Preview Section -->
-      <div *ngIf="previewUrl" class="preview-section mt-4 text-center">
-        <img [src]="previewUrl" alt="Image Preview" class="img-fluid rounded shadow-sm" style="max-height: 350px;">
-      </div>
-  
-      <div *ngIf="!previewUrl" class="text-secondary mt-3 text-center">
-        No image selected.
-      </div>
-  
-    </div>
-  
-  </div>
-  
+        

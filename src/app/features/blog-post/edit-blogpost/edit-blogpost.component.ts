@@ -6,6 +6,7 @@ import { BlogPost } from '../models/blog-post.model';
 import { CategoryService } from '../../category/services/category.service';
 import { Category } from '../../category/models/category.model';
 import { UpdateBlogPost } from '../models/Update-blog-post';
+import { ImageService } from 'src/app/Shared/components/image-selector/image.service';
 
 
 @Component({
@@ -16,6 +17,7 @@ import { UpdateBlogPost } from '../models/Update-blog-post';
 })
 export class EditBlogpostComponent implements OnInit, OnDestroy {
 
+  //Variable 
   categories: Category[] = []; // Store categories
   id:string | null = null;
   model?: BlogPost
@@ -24,16 +26,20 @@ export class EditBlogpostComponent implements OnInit, OnDestroy {
   selectedCategories?:string[]
   isImageSelectorVisible: boolean = false;
 
+  //for unsubsription 
   routeSubscription?: Subscription;
   updateBlogPostSubscription?: Subscription;
   getBlogPostSubscription?: Subscription;
   deleteBlogPostSubscription?: Subscription;
+  imageSelectedSubscription?: Subscription;
+
 
   constructor (
     private categoryService: CategoryService,
     private route: ActivatedRoute,
     private blogPostService: BlogPostService,
-    private router:Router
+    private router:Router,
+    private imageSevice : ImageService
     ){
 
   }
@@ -58,6 +64,13 @@ export class EditBlogpostComponent implements OnInit, OnDestroy {
             }
           })
         }
+        this.imageSelectedSubscription = this.imageSevice.onSelectImage()
+        .subscribe({
+          next:(response) =>{
+            if (this.model){
+              this.model.featureImageUrl = response.url;
+            }}
+        })
         
       }
     })
@@ -148,6 +161,7 @@ export class EditBlogpostComponent implements OnInit, OnDestroy {
     this.updateBlogPostSubscription?.unsubscribe();
     this.getBlogPostSubscription?.unsubscribe();
     this.deleteBlogPostSubscription?.unsubscribe();
+    this.imageSelectedSubscription?.unsubscribe();
   }
 
 
