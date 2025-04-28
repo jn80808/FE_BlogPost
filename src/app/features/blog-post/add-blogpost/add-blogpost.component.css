@@ -73,3 +73,21 @@
 .blogpost-form button:hover {
     background-color: #0f3c46;
 }
+
+.label-button-row {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+  
+  .label-button-row button {
+    margin-right: 20px; /* <--- Add this for spacing */
+    max-width: 150px;
+  }
+  
+  .label-button-row label {
+    font-weight: bold;
+    color: #134F5C;
+  }
+  

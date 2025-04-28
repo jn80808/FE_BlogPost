@@ -1,23 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CategoryService } from '../../category/services/category.service';
 import { Category } from '../../category/models/category.model';
 import { AddBlogPost } from '../models/add-blog-post.models';
 import { BlogPostService } from '../services/blog-post.service';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { ImageService } from 'src/app/Shared/components/image-selector/image.service';
 
 @Component({
   selector: 'app-add-blogpost',
   templateUrl: './add-blogpost.component.html',
   styleUrls: ['./add-blogpost.component.css']
 })
-export class AddBlogpostComponent implements OnInit {
+export class AddBlogpostComponent implements OnInit,OnDestroy {
   categories: Category[] = []; // Store categories
   model: AddBlogPost;
+  isImageSelectorVisible: boolean = false;
+  imageSelectedSubscription?: Subscription;
+  
+  
 
   constructor(
     private categoryService: CategoryService,
     private blogPostService: BlogPostService,
-    private router: Router
+    private router: Router,
+    private imageSevice : ImageService
   ) {
     this.model = {
       title: '',
@@ -35,6 +42,16 @@ export class AddBlogpostComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadCategories();
+
+    this.imageSelectedSubscription = this.imageSevice.onSelectImage()
+    .subscribe({
+      next:(selectedImage) =>{
+        if (this.model){
+          this.model.featureImageUrl = selectedImage.url;
+          this.closeImageSelector();
+        }}
+    })
+
   }
 
   onFormSubmit(): void {
@@ -57,6 +74,15 @@ export class AddBlogpostComponent implements OnInit {
       });
   }
 
+  openImageSelector():void{
+    this.isImageSelectorVisible = true;
+
+  }
+
+  closeImageSelector():void{
+    this.isImageSelectorVisible = false;
+  }
+
   toggleCategory(categoryId: string): void {
     const index = this.model.categories.indexOf(categoryId);
     if (index === -1) {
@@ -76,4 +102,11 @@ export class AddBlogpostComponent implements OnInit {
       }
     });
   }
+
+  ngOnDestroy(): void {
+    this.imageSelectedSubscription?.unsubscribe();
+  }
+
+  
 }
+

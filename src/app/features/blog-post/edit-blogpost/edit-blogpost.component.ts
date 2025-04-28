@@ -69,6 +69,7 @@ export class EditBlogpostComponent implements OnInit, OnDestroy {
           next:(response) =>{
             if (this.model){
               this.model.featureImageUrl = response.url;
+              this.closeImageSelector();
             }}
         })
         

@@ -43,22 +43,27 @@
             </div>
         </div>
 
+            <!-- Feature Image URL Column -->
+            <div class="label-button-row">
+                <button type="button" 
+                    class="btn btn-light" 
+                    (click)="openImageSelector()">
+                    Select Image
+                </button>
+                <label for="featureImageUrl">Feature Image URL</label>
+              </div>
+              
+            <ng-container *ngIf="model.featureImageUrl !== ''">
+            <div>
+                <img [src]="model.featureImageUrl" height="200px" class="my-3">
+            </div>
+            </ng-container>
 
-
-        <!-- Feature Image URL Column -->
-        <label for="featureImageUrl">Feature Image URL:</label>
-
-        <ng-container *ngIf="model.featureImageUrl !== ''">
-        <div>
-            <img [src]="model.featureImageUrl" height="200px" class="my-3">
-        </div>
-        </ng-container>
-
-        <input type="url" 
-            id="featureImageUrl" 
-            name="featureImageUrl"
-            class="form-control"
-            [(ngModel)]="model.featureImageUrl">
+            <input type="url" 
+                id="featureImageUrl" 
+                name="featureImageUrl"
+                class="form-control"
+                [(ngModel)]="model.featureImageUrl">
 
             <!-- https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BB1msG0V?w=0&h=0&q=60&m=6&f=jpg&u=t -->
 
@@ -152,3 +157,15 @@
         <button type="submit" class="btn btn-primary mt-3">Submit</button>
     </form>
 </div>
+
+<div class="images-container-modal" 
+[ngClass]="{'d-block': isImageSelectorVisible,'d-none':!isImageSelectorVisible}">
+    <button type="button" class="btn btn-light" 
+            style="position: fixed; top:10px;right:10px" 
+            (click)="closeImageSelector()">
+            X
+    </button>
+
+<app-image-selector></app-image-selector>
+</div> 
+
