@@ -1,0 +1,65 @@
+.recent-post-img {
+    width: 96px;
+    height: 96px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .featured-post-img {
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .card-img-top {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .custom-btn {
+    background-color: #134F5C;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    margin: 3px;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out, transform 0.2s;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .custom-btn:hover {
+    background-color: #0E3D47;
+    transform: scale(1.05);
+  }
+  
+  /* Responsive for smaller screens */
+  @media (max-width: 768px) {
+    .row-cols-md-2 > .col {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+  
+  .card-text {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #134F5C;
+  }
+  
+  .card-body p {
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  /* Add spacing between cards */
+  .col-12.col-md-4 {
+    margin-bottom: 30px; /* Adjust this value to control the vertical spacing */
+  }
+  
+  /* Add more padding to card body for additional space */
+  .card-body {
+    padding-bottom: 20px; /* Adjust this padding as needed */
+  }
+  
