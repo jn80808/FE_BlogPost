@@ -59,11 +59,15 @@ export class EditBlogpostComponent implements OnInit, OnDestroy {
         if(this.id){
           this.getBlogPostSubscription = this.blogPostService.getBlogPostById(this.id).subscribe({
             next: (response) =>{
+              console.log('Fetched blog post:', response);  
               this.model = response;
-
+            },
+            error: (err) => {
+              console.error('Error fetching blog post:', err);  
             }
-          })
+          });
         }
+        
         this.imageSelectedSubscription = this.imageSevice.onSelectImage()
         .subscribe({
           next:(response) =>{

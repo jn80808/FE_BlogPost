@@ -17,6 +17,7 @@ import { MarkdownModule } from 'ngx-markdown';
 import { EditBlogpostComponent } from './features/blog-post/edit-blogpost/edit-blogpost.component';
 import { ImageSelectorComponent } from './Shared/components/image-selector/image-selector.component';
 import { HomePComponent } from './features/public/home-p/home-p.component';
+import { BlogDetailsComponent } from './features/public/blog-details/blog-details.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { HomePComponent } from './features/public/home-p/home-p.component';
     EditBlogpostComponent,
     ImageSelectorComponent,
     HomePComponent,
-    HomeComponent
+    HomeComponent,
+    BlogDetailsComponent
 
   ],
   imports: [

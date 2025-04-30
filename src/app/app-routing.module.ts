@@ -8,6 +8,7 @@ import { BlogpostListComponent } from './features/blog-post/blogpost-list/blogpo
 import { AddBlogpostComponent } from './features/blog-post/add-blogpost/add-blogpost.component';
 import { EditBlogpostComponent } from './features/blog-post/edit-blogpost/edit-blogpost.component';
 import { HomePComponent } from './features/public/home-p/home-p.component';
+import { BlogDetailsComponent } from './features/public/blog-details/blog-details.component';
 
 const routes: Routes = [
   {
@@ -16,7 +17,11 @@ const routes: Routes = [
   },
   {
     path: 'homePublicView',
-    component: HomePComponent  //  HomeComponent for Public 
+    component: HomePComponent  //  Latest Blog Posts 
+  },
+  {
+    path: 'BlogDetails',
+    component: BlogDetailsComponent  //  Latest Blog Posts 
   },
   {
     path:'categories',
@@ -39,7 +44,7 @@ const routes: Routes = [
     component: AddBlogpostComponent
   },
   {
-    path:'blogposts/:id',
+    path:'blogposts/edit/:id',
     component: EditBlogpostComponent
   }
 
