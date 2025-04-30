@@ -26,7 +26,7 @@ export class BlogDetailsComponent implements OnInit {
     }
   )
 
-    feth the blog details by url 
+    //feth the blog details by url 
 
 
   }
