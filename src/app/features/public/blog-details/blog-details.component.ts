@@ -18,15 +18,15 @@ export class BlogDetailsComponent implements OnInit {
 
   ngOnInit(): void {
    
-  //   this.route.paramMap
-  //   .subscribe({
-  //       next: (param) => {
-  //         this.url = param.get('url')
-  //       }
-  //   }
-  // )
+    this.route.paramMap
+    .subscribe({
+        next: (param) => {
+          this.url = param.get('url')
+        }
+    }
+  )
 
-    //feth the blog details by url 
+    feth the blog details by url 
 
 
   }
