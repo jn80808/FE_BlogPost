@@ -1,1 +1,106 @@
 cd src/app/core/components
+
+### 🍵 Green Tea
+
+**Origin:** China, Japan  
+**Flavor:** Fresh, grassy, slightly astringent  
+**Caffeine:** Low to moderate  
+**Health Benefits:** Rich in catechins (antioxidants), supports metabolism, may reduce risk of heart disease and improve brain function.
+
+### ☕ Black Tea
+
+**Origin:** India, Sri Lanka, China, Africa  
+**Flavor:** Bold, malty, sometimes fruity or smoky  
+**Caffeine:** High  
+**Health Benefits:** Boosts energy, may lower blood pressure, improves focus, and supports heart health.
+
+### 🌸 White Tea
+
+**Origin:** China (Fujian province)  
+**Flavor:** Delicate, floral, sweet  
+**Caffeine:** Very low  
+**Health Benefits:** High in antioxidants, supports skin health, may have anti-aging and immune-boosting properties.
+
+### 🌿 Oolong Tea
+
+**Origin:** China, Taiwan  
+**Flavor:** Complex; ranges from floral and creamy to roasted and nutty  
+**Caffeine:** Moderate  
+**Health Benefits:** Supports weight management, aids digestion, and helps regulate blood sugar levels.
+
+### 🍯 Herbal Tea (Tisanes)
+
+**Origin:** Worldwide  
+**Flavor:** Varies—can be minty, fruity, spicy, floral  
+**Caffeine:** None  
+**Health Benefits:** Depends on the herb—e.g., chamomile promotes sleep, peppermint aids digestion, hibiscus may lower blood pressure.
+
+### 🪵 Pu-erh Tea
+
+**Origin:** Yunnan, China  
+**Flavor:** Earthy, rich, smooth (improves with age)  
+**Caffeine:** Moderate to high  
+**Health Benefits:** Supports digestion, may lower cholesterol, and has probiotic properties due to fermentation.
+
+### 🍵 Matcha
+
+**Origin:** Japan  
+**Flavor:** Umami, vegetal, slightly bitter  
+**Caffeine:** High  
+**Health Benefits:** High in antioxidants (especially EGCG), boosts energy and focus, supports detoxification and metabolism.
+
+### 🍶 Chai (Masala Chai)
+
+**Origin:** India  
+**Flavor:** Spicy, sweet, creamy  
+**Caffeine:** Moderate  
+**Health Benefits:** Anti-inflammatory (thanks to spices like ginger and cinnamon), supports digestion and immunity.
+
+### 🌺 Rooibos
+
+**Origin:** South Africa  
+**Flavor:** Naturally sweet, nutty, slightly vanilla  
+**Caffeine:** None  
+**Health Benefits:** High in antioxidants, supports heart health, helps with allergies and skin conditions.
+
+### 🌞 Yellow Tea
+
+**Origin:** China  
+**Flavor:** Mellow, sweet, less grassy than green tea  
+**Caffeine:** Low to moderate  
+**Health Benefits:** Similar to green tea—high in antioxidants, supports metabolism, gentle on the stomach.
+
+### 💜 Lavender Tea
+
+**Origin:** Mediterranean region  
+**Flavor:** Floral, slightly sweet, calming  
+**Caffeine:** None  
+**Health Benefits:** Helps reduce stress and anxiety, promotes relaxation and better sleep, may ease headaches.
+
+### 🌱 Ginseng Tea
+
+**Origin:** Korea, China, North America  
+**Flavor:** Earthy, slightly bitter and sweet  
+**Caffeine:** None  
+**Health Benefits:** Boosts energy and mental performance, supports the immune system, may help regulate blood sugar.
+
+### 🌼 Chamomile Tea
+
+**Origin:** Europe, Western Asia  
+**Flavor:** Mild, sweet, apple-like  
+**Caffeine:** None  
+**Health Benefits:** Promotes sleep and relaxation, eases digestive issues, reduces inflammation.
+
+### 🌹 Hibiscus Tea
+
+**Origin:** Africa, Southeast Asia, Central America  
+**Flavor:** Tart, cranberry-like  
+**Caffeine:** None  
+**Health Benefits:** Rich in vitamin C and antioxidants, may lower blood pressure, supports heart and liver health.
+
+### 🫐 Blackberry Leaf Tea
+
+**Origin:** Europe, North America  
+**Flavor:** Mild, fruity, slightly astringent  
+**Caffeine:** None  
+**Health Benefits:** Supports digestive health, may relieve sore throat, has anti-inflammatory and antioxidant properties.
