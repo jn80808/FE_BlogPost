@@ -34,7 +34,7 @@ export class BlogPostService {
   }
 
   getBlogByUrlHandle(handle: string): Observable<BlogPost> {
-    return this.http.get<BlogPost>(`${environment.apiBaseUrl}/api/BlogPost/byUrl/${handle}`);
+    return this.http.get<BlogPost>(`${environment.apiBaseUrl}/api/BlogPost/by-url/${handle}`);
   }
   
   
