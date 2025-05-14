@@ -18,6 +18,7 @@ import { EditBlogpostComponent } from './features/blog-post/edit-blogpost/edit-b
 import { ImageSelectorComponent } from './Shared/components/image-selector/image-selector.component';
 import { HomePComponent } from './features/public/home-p/home-p.component';
 import { BlogDetailsComponent } from './features/public/blog-details/blog-details.component';
+import { BlogPostPageComponent } from './features/blog-post-page/blog-post-page.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { BlogDetailsComponent } from './features/public/blog-details/blog-detail
     ImageSelectorComponent,
     HomePComponent,
     HomeComponent,
-    BlogDetailsComponent
+    BlogDetailsComponent,
+    BlogPostPageComponent
 
   ],
   imports: [

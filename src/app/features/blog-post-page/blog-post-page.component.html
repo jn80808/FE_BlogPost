@@ -1,0 +1,11 @@
+<div *ngIf="blogPost; else loading">
+    <h2>{{ blogPost.title }}</h2>
+    <img [src]="blogPost.featureImageUrl" alt="{{ blogPost.title }}" class="img-fluid rounded mb-3">
+    <p class="text-muted">{{ blogPost.publishedDate | date: 'MMMM dd, yyyy' }}</p>
+    <div [innerHTML]="blogPost.content"></div>
+  </div>
+  
+  <ng-template #loading>
+    <p>Loading blog post...</p>
+  </ng-template>
+  

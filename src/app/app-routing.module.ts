@@ -9,6 +9,7 @@ import { AddBlogpostComponent } from './features/blog-post/add-blogpost/add-blog
 import { EditBlogpostComponent } from './features/blog-post/edit-blogpost/edit-blogpost.component';
 import { HomePComponent } from './features/public/home-p/home-p.component';
 import { BlogDetailsComponent } from './features/public/blog-details/blog-details.component';
+import { BlogPostPageComponent } from './features/blog-post-page/blog-post-page.component';
 
 const routes: Routes = [
   {
@@ -46,7 +47,12 @@ const routes: Routes = [
   {
     path:'blogposts/edit/:id',
     component: EditBlogpostComponent
+  },
+  {
+    path:'blog/:urlHandle',
+    component: BlogPostPageComponent
   }
+
 
 
 ];

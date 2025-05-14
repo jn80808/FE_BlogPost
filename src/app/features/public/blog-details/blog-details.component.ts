@@ -15,7 +15,6 @@ export class BlogDetailsComponent implements OnInit {
   }
 
 
-
   ngOnInit(): void {
    
     this.route.paramMap
