@@ -10,6 +10,7 @@ import { EditBlogpostComponent } from './features/blog-post/edit-blogpost/edit-b
 import { HomePComponent } from './features/public/home-p/home-p.component';
 import { BlogDetailsComponent } from './features/public/blog-details/blog-details.component';
 import { BlogPostPageComponent } from './features/blog-post-page/blog-post-page.component';
+import { LoginComponent } from './features/auth/login/login.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,10 @@ const routes: Routes = [
   {
     path: 'homePublicView',
     component: HomePComponent  //  Latest Blog Posts 
+  },
+  {
+    path: 'login',
+    component: LoginComponent  //  Log In 
   },
   {
     path: 'BlogDetails',
