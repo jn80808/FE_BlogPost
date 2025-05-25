@@ -69,14 +69,27 @@
                 <button class="search-btn" type="submit"><i class="fas fa-search"></i></button>
             </form>
 
-                <!-- Login Button -->
-            <a  href="login.html" 
-                [routerLink]="['/login']"
-                class="btn btn-outline-primary login-btn ms-3"
-                >Login
-            </a>
 
+                <div class="d-flex">
+                    <ng-container *ngIf="user === undefined"; else showLogout>
+                        <!-- Show LogIn Button  -->
+                        <!-- Login Button -->
+                        <a  href="login.html" 
+                            [routerLink]="['/login']"
+                            class="btn btn-outline-primary login-btn ms-3"
+                            >Login
+                        </a>
 
+                    </ng-container>
+
+                    <ng-template #showLogout>
+                        <div class="d-flex align-items-center">
+                            <span>{{user?.email}}</span>
+                            <button class="btn btn-primary ms-3" (click)="onLogout()"></button>
+                        </div>
+
+                    </ng-template>
+            </div>
         </div>
     </div>
 </nav>
