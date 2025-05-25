@@ -15,7 +15,9 @@ export class LoginComponent {
 model: LoginRequest;
 
   constructor(private authservice: AuthService,
-    private cookiesService: CookieService){
+    private cookiesService: CookieService,
+    private router : Router
+  ){
         this.model = {
           email: '',
           password:''
@@ -32,6 +34,13 @@ model: LoginRequest;
         //Set Auth Cookie 
         this.cookiesService.set('Authorization', `Bearer ${response.token}`,
           undefined,'/',undefined,true,'Strict');
+
+
+        // Redirect back to Home 
+        this.router.navigateByUrl('/');
+
+
+
       }
     })
   }
