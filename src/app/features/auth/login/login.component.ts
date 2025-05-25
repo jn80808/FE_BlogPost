@@ -35,7 +35,12 @@ model: LoginRequest;
         this.cookiesService.set('Authorization', `Bearer ${response.token}`,
           undefined,'/',undefined,true,'Strict');
 
-
+        //Set User
+        this.authservice.setUser({
+          email: response.email,
+          roles: response.roles
+        });
+        
         // Redirect back to Home 
         this.router.navigateByUrl('/');
 
