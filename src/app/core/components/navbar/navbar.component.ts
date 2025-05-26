@@ -26,10 +26,11 @@ export class NavbarComponent implements OnInit{
       next: (response) => {
         //console.log(response);
           this.user = response;
-        
-
       }
-    })
+    });
+
+    this.user = this.authService.getUser();
+
   }
 
   onLogout(): void{
