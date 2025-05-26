@@ -55,42 +55,37 @@
             </li>
         </ul>
 
-        <!-- Right Side: Social Icons & Search Bar -->
-        <div class="d-flex align-items-center">
-            <div class="social-icons mr-3">
+        <!-- Right Side: Social Icons, Search Bar, and Login/Logout -->
+        <div class="d-flex align-items-center gap-4">
+            <!-- Social Icons -->
+            <div class="social-icons d-flex align-items-center gap-2">
                 <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
                 <a href="https://twitter.com" target="_blank"><i class="fa-brands fa-twitter"></i></a>
                 <a href="https://linkedin.com" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
                 <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook"></i></a>
             </div>
 
-            <form class="search-form">
+            <!-- Search Bar -->
+            <form class="search-form d-flex align-items-center">
                 <input class="form-control" type="search" placeholder="Search" aria-label="Search">
                 <button class="search-btn" type="submit"><i class="fas fa-search"></i></button>
             </form>
 
+            <!-- Login / Logout -->
+            <div class="d-flex align-items-center">
+                <ng-container *ngIf="user === undefined; else showLogout">
+                    <a href="login.html" [routerLink]="['/login']" class="btn btn-outline-primary login-btn ms-3">Login</a>
+                </ng-container>
 
-                <div class="d-flex">
-                    <ng-container *ngIf="user === undefined; else showLogout">
-                        <!-- Show LogIn Button  -->
-                        <!-- Login Button -->
-                        <a  href="login.html" 
-                            [routerLink]="['/login']"
-                            class="btn btn-outline-primary login-btn ms-3"
-                            >Login
-                        </a>
-
-                    </ng-container>
-
-                    <ng-template #showLogout>
-                        <div class="d-flex align-items-center">
-                            <span>{{user?.email}}</span>
-                            <button class="btn logout-btn ms-3" (click)="onLogout()">Logout</button>
-                        </div>
-
-                    </ng-template>
+                <ng-template #showLogout>
+                    <div class="d-flex align-items-center">
+                        <button class="btn logout-btn" (click)="onLogout()">Logout</button>
+                        <span class="ms-3">{{ user?.email }}</span>
+                    </div>
+                </ng-template>
             </div>
         </div>
+
     </div>
 </nav>
 

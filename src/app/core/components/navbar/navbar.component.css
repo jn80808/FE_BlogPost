@@ -123,6 +123,8 @@
     background-color: #134F5C;
     color: white;
 }
+
+
 .logout-btn {
     color: #134F5C !important;
     border: 1px solid #134F5C !important;
@@ -137,4 +139,27 @@
 .logout-btn:hover {
     background-color: #134F5C !important;
     color: white !important;
+}
+
+/* Add consistent spacing between main navbar right-side elements */
+.d-flex.gap-4 {
+    gap: 1.5rem; /* Adjust gap as needed */
+}
+
+/* Refined spacing inside the social icons group */
+.social-icons a {
+    color: #134F5C;
+    font-size: 18px;
+    margin: 0 5px;
+    transition: color 0.3s;
+}
+
+/* Adjust input width and spacing */
+.search-form input {
+    border-radius: 20px;
+    padding-right: 35px;
+    border: 1px solid #134F5C;
+    color: #134F5C;
+    width: 180px;
+    margin-right: 10px;
 }
