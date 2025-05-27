@@ -26,6 +26,8 @@ export class NavbarComponent implements OnInit{
       next: (response) => {
         //console.log(response);
           this.user = response;
+          console.log(this.user);
+
       }
     });
 
@@ -38,5 +40,11 @@ export class NavbarComponent implements OnInit{
     this.router.navigateByUrl('/');
 
   }
+
+
+  hasWriterRole(): boolean {
+    return this.user?.roles?.some(r => r.toLowerCase().trim() === 'writer') ?? false;
+  }
+
 
 }

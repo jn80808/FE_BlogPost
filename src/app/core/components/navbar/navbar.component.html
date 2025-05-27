@@ -34,16 +34,21 @@
     <!-- Center: Navigation Links -->
     <div class="collapse navbar-collapse text-center" id="navbarContent">
         <ul class="navbar-nav mx-auto">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="adminDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    ADMIN
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="adminDropdown">
-                    <li><a class="dropdown-item" routerLink="blogposts">BLOGPOST</a></li>
-                    <li><a class="dropdown-item" routerLink="categories">CATEGORY</a></li>
-                    <li><a class="dropdown-item" href="#">COMMENTS</a></li>
-                </ul>
-            </li>  
+
+            <!-- <ng-container *ngIf="user !== undefined && user?.roles?.includes('writer')"> -->
+            <ng-container *ngIf="hasWriterRole()">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="adminDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        ADMIN
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="adminDropdown">
+                        <li><a class="dropdown-item" routerLink="blogposts">BLOGPOST</a></li>
+                        <li><a class="dropdown-item" routerLink="categories">CATEGORY</a></li>
+                        <li><a class="dropdown-item" href="#">COMMENTS</a></li>
+                    </ul>
+                </li>  
+            </ng-container>
+            
             <li class="nav-item active">
                 <a class="nav-link" href="#">HOME</a>
             </li>
