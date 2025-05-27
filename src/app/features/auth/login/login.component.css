@@ -1,0 +1,45 @@
+.login-container {
+  background-color: #f8f9fa;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.12);
+}
+
+.login-title {
+  color: #134F5C;
+  font-weight: 600;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.form-label {
+  color: #134F5C;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.form-control {
+  font-size: 1.1rem;
+  padding: 0.75rem 1rem;
+}
+
+.btn-custom {
+  background-color: #134F5C;
+  border-color: #134F5C;
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+}
+
+.btn-custom:hover {
+  background-color: #0f3e48;
+  border-color: #0f3e48;
+}
+
+.login-container {
+  margin-top: 6rem; /* pushes form slightly down */
+  margin-bottom: 3rem;
+}
+
