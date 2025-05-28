@@ -25,10 +25,10 @@ export class CategoryService {
   addCategory(model: AddCategoryRequest): Observable<void> {
     return this.http.post<void>(`${environment.apiBaseUrl}/api/BlogCategory`, model);
   }
-  
+
   updateCategory(id: string, updateCategoryRequest: UpdateCategoryRequest) : 
   Observable <Category> {
-    return  this.http.put<Category>(`${environment.apiBaseUrl}/api/BlogCategory/${id}`, updateCategoryRequest)
+    return  this.http.put<Category>(`${environment.apiBaseUrl}/api/BlogCategory/${id}`, updateCategoryRequest,)
 
   }
 
