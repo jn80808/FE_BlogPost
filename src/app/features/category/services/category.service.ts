@@ -13,9 +13,6 @@ export class CategoryService {
 
   constructor(private http : HttpClient) { }
 
-  addCategory(model: AddCategoryRequest): Observable<void> {
-    return this.http.post<void>(`${environment.apiBaseUrl}/api/BlogCategory`, model);
-  }
 
   getAllCategories(): Observable<Category[]>{
     return this.http.get<Category[]>(`${environment.apiBaseUrl}/api/BlogCategory`)
@@ -25,6 +22,10 @@ export class CategoryService {
     return  this.http.get<Category>(`${environment.apiBaseUrl}/api/BlogCategory/${id}`)
   }
 
+  addCategory(model: AddCategoryRequest): Observable<void> {
+    return this.http.post<void>(`${environment.apiBaseUrl}/api/BlogCategory`, model);
+  }
+  
   updateCategory(id: string, updateCategoryRequest: UpdateCategoryRequest) : 
   Observable <Category> {
     return  this.http.put<Category>(`${environment.apiBaseUrl}/api/BlogCategory/${id}`, updateCategoryRequest)
