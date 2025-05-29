@@ -42,7 +42,11 @@ export class CategoryService {
   }
 
   deleteCategory(id: string): Observable<void> {
-    return this.http.delete<void>(`${environment.apiBaseUrl}/api/BlogCategory/${id}`);
+    return this.http.delete<void>(`${environment.apiBaseUrl}/api/BlogCategory/${id}`, {
+      headers: {
+        'Authorization': this.cookieService.get('Authorization')
+      }
+    });
   }
   
 
