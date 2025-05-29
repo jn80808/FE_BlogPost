@@ -25,7 +25,11 @@ export class CategoryService {
   }
 
   addCategory(model: AddCategoryRequest): Observable<void> {
-    return this.http.post<void>(`${environment.apiBaseUrl}/api/BlogCategory`, model);
+    return this.http.post<void>(`${environment.apiBaseUrl}/api/BlogCategory`, model, {
+      headers: {
+        'Authorization': this.cookieService.get('Authorization')
+      }
+    });
   }
 
   
