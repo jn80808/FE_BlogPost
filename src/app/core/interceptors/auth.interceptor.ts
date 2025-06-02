@@ -12,7 +12,12 @@ export class AuthInterceptor implements HttpInterceptor {
 
   constructor() {}
 
-  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    return next.handle(request);
+  intercept(request: HttpRequest<unknown>, next: HttpHandler): 
+  Observable<HttpEvent<unknown>> {
+    const authRequest = request.clone({
+      setHeaders: {
+        'Authorization': 
+      }
+    })
   }
 }
