@@ -9,7 +9,7 @@ import { HomeModule } from './Home/home/home.module';
 import { CategoryListComponent } from './features/category/category-list/category-list.component';
 import { AddCategoryComponent } from './features/category/add-category/add-category.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { EditCategoryComponent } from './features/category/edit-category/edit-category.component';
 import { BlogpostListComponent } from './features/blog-post/blogpost-list/blogpost-list.component';
 import { AddBlogpostComponent } from './features/blog-post/add-blogpost/add-blogpost.component' 
@@ -20,6 +20,7 @@ import { HomePComponent } from './features/public/home-p/home-p.component';
 import { BlogDetailsComponent } from './features/public/blog-details/blog-details.component';
 import { BlogPostPageComponent } from './features/blog-post-page/blog-post-page.component';
 import { LoginComponent } from './features/auth/login/login.component';
+import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 
 
 @NgModule({
@@ -49,7 +50,11 @@ import { LoginComponent } from './features/auth/login/login.component';
     MarkdownModule.forRoot()
   ],
   exports: [HomePComponent],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
