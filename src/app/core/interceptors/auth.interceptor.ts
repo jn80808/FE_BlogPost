@@ -13,14 +13,21 @@ export class AuthInterceptor implements HttpInterceptor {
 
   constructor(private cookieService: CookieService ) {}
 
-  intercept(request: HttpRequest<unknown>, next: HttpHandler): 
-  Observable<HttpEvent<unknown>> {
-    const authRequest = request.clone({
-      setHeaders: {
-        'Authorization': this.cookieService.get('Authorization')
-      }
-    });
+    intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+      
+      const token = this.cookieService.get('Authorization');
+      const cleanedToken = token.replace(/^Bearer\s+/i, '');
 
-    return next.handle(authRequest);
+      if (cleanedToken) {
+        const authRequest = request.clone({
+          setHeaders: {
+            'Authorization': `Bearer ${cleanedToken}`
+          }
+        });
+
+        return next.handle(authRequest);
+      }
+
+    return next.handle(request); // In case there's no token
   }
 }
