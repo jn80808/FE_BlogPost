@@ -18,7 +18,7 @@ export class AuthInterceptor implements HttpInterceptor {
       const token = this.cookieService.get('Authorization');
       const cleanedToken = token.replace(/^Bearer\s+/i, '');
 
-      if (cleanedToken) {
+      if (cleanedToken && this.shouldInterceptRequest(request)) {
         const authRequest = request.clone({
           setHeaders: {
             'Authorization': `Bearer ${cleanedToken}`
@@ -29,5 +29,9 @@ export class AuthInterceptor implements HttpInterceptor {
       }
 
     return next.handle(request); // In case there's no token
+  }
+
+  private shouldInterceptRequest(request: HttpRequest<any>): boolean {
+    return request.urlWithParams.indexOf('addAuth=true',0) > -1?  true :false;
   }
 }
