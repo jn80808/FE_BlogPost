@@ -38,27 +38,33 @@ const routes: Routes = [
   },
   {
     path:'categories/add',
-    component: AddCategoryComponent
+    component: AddCategoryComponent,
+    canActivate: [authGuard]
   },
   {
     path:'categories/:id',
-    component: EditCategoryComponent
+    component: EditCategoryComponent,
+    canActivate: [authGuard]
   },
   {
     path:'blogposts',
-    component: BlogpostListComponent
+    component: BlogpostListComponent,
+    canActivate: [authGuard]
   },
   {
     path:'blogposts/add',
-    component: AddBlogpostComponent
+    component: AddBlogpostComponent,
+    canActivate: [authGuard]
   },
   {
     path:'blogposts/edit/:id',
-    component: EditBlogpostComponent
+    component: EditBlogpostComponent,
+    canActivate: [authGuard]
   },
   {
     path:'blog/:urlHandle',
-    component: BlogPostPageComponent
+    component: BlogPostPageComponent,
+    canActivate: [authGuard]
   }
 
 
