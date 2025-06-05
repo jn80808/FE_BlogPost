@@ -11,6 +11,7 @@ import { HomePComponent } from './features/public/home-p/home-p.component';
 import { BlogDetailsComponent } from './features/public/blog-details/blog-details.component';
 import { BlogPostPageComponent } from './features/blog-post-page/blog-post-page.component';
 import { LoginComponent } from './features/auth/login/login.component';
+import { authGuard } from './features/auth/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -23,15 +24,17 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    component: LoginComponent  //  Log In 
+    component: LoginComponent  
   },
   {
     path: 'BlogDetails',
-    component: BlogDetailsComponent  //  Latest Blog Posts 
+    component: BlogDetailsComponent  
   },
+  //Admin Page
   {
     path:'categories',
-    component: CategoryListComponent
+    component: CategoryListComponent,
+    canActivate: [authGuard]
   },
   {
     path:'categories/add',
