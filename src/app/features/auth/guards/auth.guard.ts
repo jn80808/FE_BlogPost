@@ -2,53 +2,48 @@ import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from '../services/auth.service';
-import jwt_decode from 'jwt-decode';
+import { jwtDecode } from 'jwt-decode';
 
+// Define the expected structure of the token
+interface JwtPayload {
+  exp: number;
+  sub?: string;
+  roles?: string[];
+}
 
 export const authGuard: CanActivateFn = (route, state) => {
   const cookieService = inject(CookieService);
   const authService = inject(AuthService);
   const router = inject(Router);
-  
+  const user = authService.getUser();
 
-  interface JwtPayload {
-  sub?: string;
-  exp?: number;
-  // Add any other claims you expect in the token
-}
-
-  //Check for the JWT Token
+  // Get token from cookie
   let token = cookieService.get('Authorization');
 
-  if(token){
-      token = token.replace('Bearer','');
-      const decodedtoken : any = jwt_decode(token);
+  if (token && user) {
+    token = token.replace('Bearer', '').trim(); // Clean token format
+    const decodedToken = jwtDecode<JwtPayload>(token);
 
-      //Check if token has expired 
-      const expirationDate = decodedtoken.exp*1000;
-      const currentTime = new Date().getTime();
+    const expirationDate = decodedToken.exp * 1000;
+    const currentTime = new Date().getTime();
 
-      //compare if the token is not expire 
-      if (expirationDate < currentTime){
-      // Logout if token is not valid 
+    if (expirationDate < currentTime) {
+      // Token expired
       authService.logout();
-      return router.createUrlTree(['/login'],{queryParams: {returnUrl: state.url}})
+      return router.createUrlTree(['/login'], { queryParams: { returnUrl: state.url } });
+    } else {
+      // Token is valid
+      if (user.roles.includes('writer')) {
+        return true;
       } else {
-        //Token is still valid 
-
-        
+        alert('Unauthorized');
+        return false;
       }
+    }
 
   } else {
-    // Logout
+    // Token or user missing
     authService.logout();
-    return router.createUrlTree(['/login'],{queryParams: {returnUrl: state.url}})
-    
-
-
+    return router.createUrlTree(['/login'], { queryParams: { returnUrl: state.url } });
   }
-
-  return ('try')
-
-
 };
