@@ -33,7 +33,9 @@ export const authGuard: CanActivateFn = (route, state) => {
       return router.createUrlTree(['/login'], { queryParams: { returnUrl: state.url } });
     } else {
       // Token is valid
-      if (user.roles.includes('writer')) {
+
+      // Allow access if user has 'writer' role (case-insensitive)
+      if (user.roles.some(role => role.toLowerCase() === 'writer')) {
         return true;
       } else {
         alert('Unauthorized');
