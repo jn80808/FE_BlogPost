@@ -34,4 +34,16 @@ onDelete(id: string): void {
     });
 }
 
+
+searchQuery: string = '';
+
+onSearch(): void {
+    this.categories$ = this.categoryService.getAllCategories();
+}
+
+
+
+
+
+
 }
