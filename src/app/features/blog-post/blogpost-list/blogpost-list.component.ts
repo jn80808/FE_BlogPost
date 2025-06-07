@@ -43,4 +43,12 @@ constructor(
   }
   
 
+  searchQuery: string = '';
+
+  onSearch(): void {
+      this.blogPosts$ = this.blogpostService.getAllBlogPost();
+  }
+
+
+
 }
