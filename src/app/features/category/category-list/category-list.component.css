@@ -123,3 +123,39 @@
     word-wrap: break-word;
     overflow-wrap: break-word;
 }
+
+/* Already good */
+@media (max-width: 768px) {
+    .d-flex.justify-content-between {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .search-bar,
+    .btn.btn-primary {
+        width: 100%;
+    }
+
+    .btn.btn-primary {
+        text-align: center;
+    }
+}
+
+/* New: Responsive table overflow fix */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+/* Optional: Improve spacing below search/add row */
+.search-bar {
+    margin-bottom: 10px;
+}
+
+@media (max-width: 500px) {
+    .button-group {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
