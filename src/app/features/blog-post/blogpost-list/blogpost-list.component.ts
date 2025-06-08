@@ -43,12 +43,11 @@ constructor(
   }
   
 
-  searchQuery: string = '';
-
-  onSearch(): void {
-      this.blogPosts$ = this.blogpostService.getAllBlogPost();
-  }
-
+onSearch(query: string): void {
+    // alert(query);
+    this.blogPosts$ = this.blogpostService.getAllBlogPost(query);
+    
+}
 
 
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AddBlogPost } from '../models/add-blog-post.models';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { BlogPost } from '../models/blog-post.model';
 import { environment } from 'src/environments/environment';
 import { UpdateBlogPost } from '../models/Update-blog-post';
@@ -13,8 +13,17 @@ export class BlogPostService {
 
   constructor( private http: HttpClient) { }
 
-  getAllBlogPost(): Observable<BlogPost[]>{
-    return this.http.get<BlogPost[]>(`${environment.apiBaseUrl}/api/BlogPost`);
+  getAllBlogPost(query?:string): Observable<BlogPost[]>{
+        let params = new HttpParams();
+    
+        if (query){
+          params = params.set('query', query)
+        }
+    
+        
+    return this.http.get<BlogPost[]>(`${environment.apiBaseUrl}/api/BlogPost`,{
+      params: params
+    });
   }
 
   getBlogPostById(id: string):Observable<BlogPost>{
