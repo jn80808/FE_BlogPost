@@ -24,6 +24,14 @@ ngOnInit(): void {
   this.categories$ = this.categoryService.getAllCategories();
 }
 
+
+onSearch(query: string): void {
+    // alert(query);
+    this.categories$ = this.categoryService.getAllCategories(query);
+    
+}
+
+
 onDelete(id: string): void {
   this.categoryService.deleteCategory(id)
     .subscribe({
@@ -34,12 +42,6 @@ onDelete(id: string): void {
     });
 }
 
-
-searchQuery: string = '';
-
-onSearch(): void {
-    this.categories$ = this.categoryService.getAllCategories();
-}
 
 
 
