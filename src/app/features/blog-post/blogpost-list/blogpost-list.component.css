@@ -168,3 +168,78 @@
     }
   }
   
+  .short-description {
+  max-width: 350px;
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+
+
+  /* Existing media query for <=768px */
+@media (max-width: 768px) {
+  .d-flex.justify-content-between {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .search-bar,
+  .btn.btn-primary {
+    width: 100%;
+  }
+
+  .btn.btn-primary {
+    text-align: center;
+  }
+
+  .table {
+    font-size: 0.875rem;
+  }
+
+  .custom-btn {
+    padding: 6px 10px;
+  }
+
+  .short-description {
+    max-width: 250px;
+  }
+}
+
+/* New media query for very small devices <= 480px (phones) */
+@media (max-width: 480px) {
+  /* Make the table scrollable horizontally */
+  .table-responsive {
+    overflow-x: auto;
+  }
+
+  /* Make badges smaller and wrap properly */
+  .badge {
+    font-size: 0.65rem;
+    padding: 4px 8px;
+  }
+
+  /* Stack buttons vertically */
+  .button-group {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  /* Adjust padding in buttons */
+  .custom-btn {
+    padding: 5px 8px;
+    font-size: 0.85rem;
+  }
+
+  /* Short description smaller max-width */
+  .short-description {
+    max-width: 180px;
+  }
+
+  /* Adjust heading font size */
+  h1 {
+    font-size: 1.5rem;
+  }
+}
