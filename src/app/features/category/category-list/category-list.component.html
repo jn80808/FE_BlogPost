@@ -8,9 +8,9 @@
                 type="text"
                 class="form-control"
                 placeholder="Search categories..."
+                (keydown.enter)="onSearch(queryText.value)"
                 #queryText
             />
-           <button type="button" class="btn btn-warning" (click)="onSearch(queryText.value)">Search</button>
         </div>
 
         <!-- Add Button on Right -->
