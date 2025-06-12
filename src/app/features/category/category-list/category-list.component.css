@@ -159,3 +159,46 @@
         gap: 8px;
     }
 }
+
+
+/* ----- arrow up and down ----- */
+/* Container for both icons - side by side */
+.sort-icons {
+    display: inline-flex;
+    gap: 4px;
+    margin-left: 8px;
+    align-items: center;
+}
+
+/* Buttons themselves */
+/* Make the sort icons bolder and more prominent */
+.sort-btn i {
+    font-size: 18px;         /* Increase icon size */
+    font-weight: bold;       /* Make icon visually heavier */
+    width: 24px;             /* Give consistent width */
+    text-align: center;      /* Center the icon inside the button */
+    display: inline-block;   /* Ensure width/height styles apply */
+    color: white;            /* Default color */
+}
+
+/* Increase button hit area for accessibility and spacing */
+.sort-btn {
+    padding: 4px 6px;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Add hover styles for more visibility */
+.sort-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Light hover background */
+    color: #FFD700; /* Brighter gold for hover */
+    border-color: #FFD700;
+}
+
+@media (max-width: 500px) {
+    .sort-icons {
+        gap: 2px;
+    }
+}

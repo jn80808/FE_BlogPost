@@ -24,7 +24,20 @@
                 <thead class="custom-table-header">
                     <tr>
                         <th scope="col">Id</th>
-                        <th scope="col">Name</th>
+                        <th scope="col" class="sortable-column">
+                            Name
+                            <span class="sort-icons">
+                                <!-- <button class="sort-btn" (click)="sortBy('asc')" aria-label="Sort ascending"> -->
+                                <button class="sort-btn"  aria-label="Sort ascending">
+                                    <i class="bi bi-arrow-up"></i>
+                                </button>
+                                <!-- <button class="sort-btn" (click)="sortBy('desc')" aria-label="Sort descending"> -->
+                                <button class="sort-btn"  aria-label="Sort descending">
+                                    <i class="bi bi-arrow-down"></i>
+                                </button>
+                            </span>
+                        </th>
+
                         <th scope="col">Url Handle</th>
                         <th scope="col">Description</th>
                         <th></th>
