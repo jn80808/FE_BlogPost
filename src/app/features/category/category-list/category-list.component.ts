@@ -31,6 +31,11 @@ onSearch(query: string): void {
     
 }
 
+sort(sortBy: string, sortDirection: string){
+ this.categories$ = this.categoryService.getAllCategories(undefined, sortBy, sortDirection);
+}
+
+
 
 onDelete(id: string): void {
   this.categoryService.deleteCategory(id)
