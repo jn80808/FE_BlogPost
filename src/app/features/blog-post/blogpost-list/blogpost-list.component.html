@@ -14,7 +14,9 @@
     </div>
 
     <!-- Add Button on Right -->
-    <a [routerLink]="['/blogposts/add']" class="btn btn-primary"><b>Add Blog Post</b></a>
+    <a [routerLink]="['/blogposts/add']" class="btn btn-primary">
+      <b>Add Blog Post</b>
+    </a>
   </div>
 
   <ng-container *ngIf="blogPosts$ | async as blogPosts; else noBlogPosts">
@@ -23,14 +25,44 @@
       <table class="table table-bordered mt-3">
         <thead class="custom-table-header">
           <tr>
-            <th scope="col">Title</th>
-            <th scope="col">Short Description</th>
-            <th scope="col">Author</th>
+
+          <th scope="col" class="sortable-column">
+            <div class="header-with-icons">
+              Title
+              <span class="sort-icons">
+                <button class="sort-btn" (click)="sort('Title','asc')" aria-label="Sort ascending">
+                  <i class="bi bi-arrow-up"></i>
+                </button>
+                <button class="sort-btn" (click)="sort('Title','desc')" aria-label="Sort descending">
+                  <i class="bi bi-arrow-down"></i>
+                </button>
+              </span>
+            </div>
+          </th>
+
+          <th scope="col">Short Description</th>
+
+
+          <th scope="col" class="sortable-column">
+              <div class="header-with-icons">
+                Author
+                <span class="sort-icons">
+                  <button class="sort-btn" (click)="sort('Author','asc')" aria-label="Sort ascending">
+                    <i class="bi bi-arrow-up"></i>
+                  </button>
+                  <button class="sort-btn" (click)="sort('Author','desc')" aria-label="Sort descending">
+                    <i class="bi bi-arrow-down"></i>
+                  </button>
+                </span>
+              </div>
+            </th>
+
             <th scope="col">Visible?</th>
             <th>Categories</th>
             <th></th>
           </tr>
         </thead>
+
         <tbody class="table-group-divider">
           <tr *ngFor="let post of blogPosts">
             <td>{{ post.title }}</td>

@@ -197,6 +197,15 @@
     border-color: #FFD700;
 }
 
+/* New wrapper to keep text and icons inline */
+.header-with-icons {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+
+
 @media (max-width: 500px) {
     .sort-icons {
         gap: 2px;

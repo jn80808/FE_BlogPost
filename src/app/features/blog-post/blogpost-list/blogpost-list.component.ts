@@ -49,5 +49,10 @@ onSearch(query: string): void {
     
 }
 
+sort(sortBy: string, sortDirection: string){
+    this.blogPosts$ = this.blogpostService.getAllBlogPost(undefined, sortBy, sortDirection);
+}
+
+
 
 }

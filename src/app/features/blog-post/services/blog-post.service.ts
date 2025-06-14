@@ -13,13 +13,20 @@ export class BlogPostService {
 
   constructor( private http: HttpClient) { }
 
-  getAllBlogPost(query?:string): Observable<BlogPost[]>{
+  getAllBlogPost(query?:string, sortBy?: string, sortDirection?: string): Observable<BlogPost[]>{
         let params = new HttpParams();
     
         if (query){
           params = params.set('query', query)
         }
     
+      if (sortBy){
+        params = params.set('sortBy',sortBy)
+      }
+
+      if (sortDirection){
+        params = params.set('sortDirection',sortDirection)
+      }
         
     return this.http.get<BlogPost[]>(`${environment.apiBaseUrl}/api/BlogPost`,{
       params: params
