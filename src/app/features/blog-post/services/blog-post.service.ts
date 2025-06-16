@@ -13,7 +13,8 @@ export class BlogPostService {
 
   constructor( private http: HttpClient) { }
 
-  getAllBlogPost(query?:string, sortBy?: string, sortDirection?: string): Observable<BlogPost[]>{
+  getAllBlogPost(query?:string, sortBy?: string, sortDirection?: string,
+    pageNumber?: number ,pageSize?: number): Observable<BlogPost[]>{
         let params = new HttpParams();
     
         if (query){
@@ -27,12 +28,26 @@ export class BlogPostService {
       if (sortDirection){
         params = params.set('sortDirection',sortDirection)
       }
+
+      if (pageNumber){
+        params = params.set('pageNumber',pageNumber)
+      }
+
+      if (pageSize){
+        params = params.set('pageSize',pageSize)
+      }
+
+
         
     return this.http.get<BlogPost[]>(`${environment.apiBaseUrl}/api/BlogPost`,{
       params: params
     });
   }
+  getBlogPostCount() : Observable<number>{
+    return  this.http.get<number>(`${environment.apiBaseUrl}/api/BlogPost/count`)
+  }
 
+  
   getBlogPostById(id: string):Observable<BlogPost>{
     return this.http.get<BlogPost>(`${environment.apiBaseUrl}/api/BlogPost/${id}`);
   }

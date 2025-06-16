@@ -296,3 +296,47 @@
         gap: 2px;
     }
 }
+
+
+
+/* ----- Paginator Styles -----*/
+.pagination {
+    justify-content: center; /* Center the paginator */
+    margin-top: 20px;
+}
+
+.page-item {
+    margin: 0 4px; /* Space between pagination items */
+}
+.page-link {
+    background-color: white !important;
+    color: #134F5C !important; /* Your theme color */
+    border: 1px solid #134F5C !important;
+}
+
+/* On hover */
+.page-link:hover {
+    background-color: #134F5C !important;
+    color: white !important;
+}
+
+/* Active page item style */
+.page-item.active .page-link {
+    background-color: #134F5C !important;
+    color: white !important;
+    border-color: #134F5C !important;
+    font-weight: bold;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+    .pagination {
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .page-link {
+        padding: 6px 10px;
+        font-size: 14px;
+    }
+}

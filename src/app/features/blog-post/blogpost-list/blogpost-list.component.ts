@@ -15,6 +15,14 @@ export class BlogpostListComponent implements OnInit {
   deleteBlogPostSubscription?: Subscription;
   id:string | null = null;
 
+  totalCount?: number;
+  list: number[]= [];
+
+  pageNumber = 1;
+  pageSize = 5;
+
+
+
 constructor(
   private blogpostService: BlogPostService,
   private router:Router
@@ -23,9 +31,25 @@ constructor(
 }
 
   ngOnInit(): void {
-    //get all blog posts from API
-    this.blogPosts$ = this.blogpostService.getAllBlogPost();
-  }
+
+      this.blogpostService.getBlogPostCount()
+      .subscribe({
+        next: (value) => {
+
+          this.totalCount = value ;
+
+          this.list = new Array(Math.ceil(value/this.pageSize))
+
+        //get all blog posts from API
+        this.blogPosts$ = this.blogpostService.getAllBlogPost(undefined,
+            undefined,
+            undefined,
+            this.pageNumber,
+            this.pageSize
+          );
+        }
+      })
+    }
 
   onDelete(id: string): void {
     console.log('Delete button clicked for ID:', id); // now this will show the correct ID
@@ -51,6 +75,48 @@ onSearch(query: string): void {
 
 sort(sortBy: string, sortDirection: string){
     this.blogPosts$ = this.blogpostService.getAllBlogPost(undefined, sortBy, sortDirection);
+}
+
+
+getPage(pageNumber: number ){
+      this.pageNumber = pageNumber
+      this.blogPosts$ = this.blogpostService.getAllBlogPost(
+        undefined,
+        undefined,
+        undefined,
+        this.pageNumber,
+        this.pageSize
+      );
+}
+
+getNextPage (){
+      if(this.pageNumber + 1> this.list.length) {
+        return;
+      }
+
+      this.pageNumber+=1;
+      this.blogPosts$ = this.blogpostService.getAllBlogPost(
+        undefined,
+        undefined,
+        undefined,
+        this.pageNumber,
+        this.pageSize
+      );
+}
+
+getPrevPage (){
+      if(this.pageNumber - 1 < 1) {
+        return;
+      }
+
+      this.pageNumber-=1;
+      this.blogPosts$ = this.blogpostService.getAllBlogPost(
+        undefined,
+        undefined,
+        undefined,
+        this.pageNumber,
+        this.pageSize
+      );
 }
 
 
